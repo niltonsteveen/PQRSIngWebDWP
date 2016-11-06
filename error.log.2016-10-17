@@ -1,0 +1,18 @@
+2016-10-16 12:16:25.106 ERROR ErrorLog org.hibernate.id.IdentifierGenerationException: ids for this class must be manually assigned before calling save(): co.pqrs.ing.web.db.Usuario 
+2016-10-16 12:16:56.162 ERROR ErrorLog org.hibernate.id.IdentifierGenerationException: ids for this class must be manually assigned before calling save(): co.pqrs.ing.web.db.Usuario 
+2016-10-16 12:19:18.702 ERROR ErrorLog org.hibernate.id.IdentifierGenerationException: ids for this class must be manually assigned before calling save(): co.pqrs.ing.web.db.Usuario 
+2016-10-16 13:05:23.729 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.Usuario.habilitado 
+2016-10-16 13:08:32.451 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.Usuario.habilitado 
+2016-10-16 13:09:16.116 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.Usuario.habilitado 
+2016-10-16 13:10:39.266 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.Usuario.habilitado 
+2016-10-16 15:56:31.408 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.Usuario.habilitado 
+2016-10-16 16:02:39.323 ERROR ErrorLog org.hibernate.exception.ConstraintViolationException: Could not execute JDBC batch update 
+2016-10-16 20:25:24.601 ERROR ErrorLog Correo inválido 
+2016-10-16 20:25:50.314 ERROR ErrorLog El usuario ya existe en la base de datos 
+2016-10-16 20:55:41.898 ERROR ErrorLog org.hibernate.exception.DataException: Could not execute JDBC batch update 
+2016-10-16 21:14:11.662 ERROR ErrorLog org.hibernate.exception.DataException: Could not execute JDBC batch update 
+2016-10-16 22:08:45.173 ERROR ErrorLog El usuario ya existe en la base de datos 
+2016-10-16 22:10:17.513 ERROR ErrorLog org.hibernate.exception.DataException: Could not execute JDBC batch update 
+2016-10-16 22:10:21.630 ERROR ErrorLog org.hibernate.exception.DataException: Could not execute JDBC batch update 
+2016-10-17 19:45:21.212 ERROR ErrorLog El usuario ya existe en la base de datos 
+2016-10-17 19:45:51.565 ERROR ErrorLog org.hibernate.exception.ConstraintViolationException: Could not execute JDBC batch update 

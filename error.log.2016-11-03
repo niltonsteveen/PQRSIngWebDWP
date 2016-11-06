@@ -1,0 +1,46 @@
+2016-10-19 09:59:02.803 ERROR ErrorLog Faltan datos por ingresar 
+2016-10-19 10:01:11.872 ERROR ErrorLog Faltan datos por ingresar 
+2016-10-19 10:01:54.874 ERROR ErrorLog Faltan datos por ingresar 
+2016-10-19 10:29:10.782 ERROR ErrorLog Faltan datos por ingresar 
+2016-10-19 10:29:53.866 ERROR ErrorLog Faltan datos por ingresar 
+2016-10-19 10:32:39.981 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.SolicitudPQR.usuario 
+2016-10-19 10:36:03.051 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.SolicitudPQR.usuario 
+2016-10-19 10:36:27.204 ERROR ErrorLog Faltan datos por ingresar 
+2016-10-19 10:36:55.988 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.SolicitudPQR.usuario 
+2016-10-19 10:43:50.752 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.SolicitudPQR.usuario 
+2016-10-19 10:44:31.748 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.SolicitudPQR.usuario 
+2016-10-19 10:47:16.283 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.SolicitudPQR.usuario 
+2016-10-19 10:50:40.076 ERROR ErrorLog Para realizar una solicitud debes estar registrado como usuario o encargado 
+2016-10-19 10:51:47.491 ERROR ErrorLog Faltan datos por ingresar 
+2016-10-19 10:53:03.752 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.SolicitudPQR.usuario 
+2016-10-19 10:53:17.041 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.SolicitudPQR.usuario 
+2016-10-19 10:54:57.602 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.SolicitudPQR.usuario 
+2016-10-19 11:03:52.424 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.SolicitudPQR.usuario 
+2016-10-19 11:28:56.315 ERROR ErrorLog Correo invalido 
+2016-10-19 11:31:51.129 ERROR ErrorLog org.hibernate.exception.ConstraintViolationException: Could not execute JDBC batch update 
+2016-10-19 11:42:39.868 ERROR ErrorLog org.hibernate.QueryException: could not resolve property: fecha_creacion of: co.pqrs.ing.web.db.SolicitudPQR 
+2016-10-19 11:44:12.772 ERROR ErrorLog org.hibernate.QueryException: could not resolve property: fecha_creacion of: co.pqrs.ing.web.db.SolicitudPQR 
+2016-10-19 11:48:21.791 ERROR ErrorLog java.text.ParseException: Unparseable date: "116/9/18" 
+2016-10-19 11:51:23.732 ERROR ErrorLog org.hibernate.QueryException: could not resolve property: fecha_creacion of: co.pqrs.ing.web.db.SolicitudPQR 
+2016-10-19 11:58:07.007 ERROR ErrorLog ejemplo 
+2016-10-19 11:59:56.127 ERROR ErrorLog ejemplo 
+2016-10-19 12:07:50.510 ERROR ErrorLog ejemplo 
+2016-10-19 12:09:56.052 ERROR ErrorLog ejemplo 
+2016-10-19 12:14:23.141 ERROR ErrorLog java.text.ParseException: Unparseable date: "116/9/18" 
+2016-10-19 12:14:57.118 ERROR ErrorLog java.text.ParseException: Unparseable date: "116/9/18" 
+2016-10-19 12:15:15.091 ERROR ErrorLog java.text.ParseException: Unparseable date: "116/9/18" 
+2016-10-19 12:15:52.835 ERROR ErrorLog java.text.ParseException: Unparseable date: "116/9/18" 
+2016-10-19 12:16:19.180 ERROR ErrorLog java.text.ParseException: Unparseable date: "116/9/18" 
+2016-10-19 12:16:49.717 ERROR ErrorLog java.text.ParseException: Unparseable date: "116/9/18" 
+2016-10-19 12:17:39.911 ERROR ErrorLog java.text.ParseException: Unparseable date: "116/9/18" 
+2016-10-30 21:55:25.408 ERROR ErrorLog El correo ya existe, debe solicitar recuperar la contrase�a 
+2016-10-30 21:57:48.847 ERROR ErrorLog El correo ya existe, debe solicitar recuperar la contrase�a 
+2016-10-30 21:58:53.537 ERROR ErrorLog El correo ya existe, debe solicitar recuperar la contrase�a 
+2016-10-30 21:59:36.531 ERROR ErrorLog El correo ya existe, debe solicitar recuperar la contrase�a 
+2016-10-30 22:19:29.839 ERROR ErrorLog El correo ya existe, debe solicitar recuperar la contrase�a 
+2016-10-30 22:39:26.842 ERROR ErrorLog El usuario ya existe en la base de datos 
+2016-10-30 22:40:07.867 ERROR ErrorLog El correo ya existe, debe solicitar recuperar la contrase�a 
+2016-10-30 22:44:31.075 ERROR ErrorLog org.hibernate.PropertyValueException: not-null property references a null or transient value: co.pqrs.ing.web.db.SolicitudPQR.usuario 
+2016-11-03 09:19:21.712 ERROR ErrorLog Se deben ingresar los datos que se marcan como obligatorios 
+2016-11-03 09:50:15.597 ERROR ErrorLog Se deben ingresar los datos que se marcan como obligatorios 
+2016-11-03 09:55:22.221 ERROR ErrorLog La solicitud tiene que tener un cliente asociado 
