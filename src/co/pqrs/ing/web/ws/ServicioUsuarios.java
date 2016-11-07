@@ -22,6 +22,7 @@ import co.pqrs.ing.web.db.Usuario;
 import co.pqrs.ing.web.enums.Rol;
 import co.pqrs.ing.web.exception.MyDAOException;
 import co.pqrs.ing.web.logic.UsuarioBl;
+import co.pqrs.ing.web.util.Utils;
 import co.pqrs.ing.web.ws.dto.UsuariosWS;
 
 @Component
@@ -56,7 +57,7 @@ public class ServicioUsuarios {
 				usuariosWS.setHabilitado(usuario.getHabilitado());
 				usuariosWS.setNombres(usuario.getNombres());
 				usuariosWS.setPassword(usuario.getPassword());
-				usuariosWS.setRol(usuario.getRol());
+				usuariosWS.setRol(usuario.getRol().name());
 				usuariosWS.setToken(usuario.getToken());
 				usuariosWS.setUsername(usuario.getUsername());
 				result.add(usuariosWS);
@@ -82,7 +83,7 @@ public class ServicioUsuarios {
 			result.setHabilitado(user.getHabilitado());
 			result.setNombres(user.getNombres());
 			result.setPassword(user.getPassword());
-			result.setRol(user.getRol());
+			result.setRol(user.getRol().name());
 			result.setToken(user.getToken());
 			result.setUsername(user.getUsername());
 			
@@ -108,7 +109,8 @@ public class ServicioUsuarios {
 			result.setHabilitado(user.isHabilitado());
 			result.setNombres(user.getNombres());
 			result.setPassword(user.getPassword());
-			result.setRol(user.getRol());
+			Rol rol=Utils.crearRol(user.getRol());
+			result.setRol(rol);
 			result.setToken(user.getToken());
 			result.setUsername(user.getUsername());
 			usuarioBl.crearUsuario(result, loged);
@@ -135,7 +137,7 @@ public class ServicioUsuarios {
 			result.setHabilitado(user.getHabilitado());
 			result.setNombres(user.getNombres());
 			result.setPassword(user.getPassword());
-			result.setRol(user.getRol());
+			result.setRol(user.getRol().name());
 			result.setToken(user.getToken());
 			result.setUsername(user.getUsername());
 		} catch (MyDAOException e) {
@@ -158,7 +160,8 @@ public class ServicioUsuarios {
 			result.setHabilitado(user.isHabilitado());
 			result.setNombres(user.getNombres());
 			result.setPassword(user.getPassword());
-			result.setRol(user.getRol());
+			Rol rol=Utils.crearRol(user.getRol());
+			result.setRol(rol);
 			result.setToken(user.getToken());
 			result.setUsername(user.getUsername());
 			usuarioBl.crearUsuario(result, loged);

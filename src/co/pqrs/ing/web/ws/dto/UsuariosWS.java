@@ -10,6 +10,8 @@ import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import co.pqrs.ing.web.enums.Rol;
+import co.pqrs.ing.web.exception.MyDAOException;
+import co.pqrs.ing.web.util.Utils;
 
 /**
  * 
@@ -27,7 +29,7 @@ public class UsuariosWS {
 	private String nombres;
 	private String password;
 	private String token;
-	private Rol rol;
+	private String rol;
 	private Date fechaCreacion;
 	private boolean habilitado;
 	
@@ -62,9 +64,10 @@ public class UsuariosWS {
 	 * @param rol
 	 * @param fechaCreacion
 	 * @param habilitado
+	 * @throws MyDAOException 
 	 */
 	public UsuariosWS(String username, String apellidos, String direccion, String correo, String nombres,
-			String password, String token, Rol rol, Date fechaCreacion, boolean habilitado) {
+			String password, String token, String rol, Date fechaCreacion, boolean habilitado) throws MyDAOException {
 		super();
 		this.username = username;
 		this.apellidos = apellidos;
@@ -126,10 +129,10 @@ public class UsuariosWS {
 	public void setToken(String token) {
 		this.token = token;
 	}
-	public Rol getRol() {
+	public String getRol() {
 		return rol;
 	}
-	public void setRol(Rol rol) {
+	public void setRol(	String rol) throws MyDAOException {
 		this.rol = rol;
 	}
 	public Date getFechaCreacion() {

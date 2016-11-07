@@ -43,62 +43,61 @@ public class UsuarioBlImpl implements UsuarioBl {
 		if(usuario==null){
 			throw new NullPointerException("Usuario no puede ser nulo");
 		}
-		else{	
-			if("".equals(usuario.getUsername())||"".equals(usuario.getApellidos())
-			||"".equals(usuario.getEmail())||"".equals(usuario.getNombres())||
-			"".equals(usuario.getPassword())||"".equals(usuario.getRol())){
-				throw new MyDAOException("Debe especificar los datos que se marcan como obligatorios");
+		if("".equals(usuario.getUsername())||"".equals(usuario.getApellidos())
+		||"".equals(usuario.getEmail())||"".equals(usuario.getNombres())||
+		"".equals(usuario.getPassword())||"".equals(usuario.getRol())){
+			throw new MyDAOException("Debe especificar los datos que se marcan como obligatorios");
+		}else{
+			Usuario usr=userDao.toGet(usuario.getUsername());
+			if(usr!=null){
+				throw new MyDAOException("El usuario ya existe en la base de datos");
 			}else{
-				Usuario usr=userDao.toGet(usuario.getUsername());
-				if(usr!=null){
-					throw new MyDAOException("El usuario ya existe en la base de datos");
-				}else{
-					if(Utils.validateEmail(usuario.getEmail())==false){
-						throw new MyDAOException("Correo invalido");
-					}else if(userDao.getByEmail(usuario.getEmail())!=null){
-						throw new MyDAOException("El correo ya existe, debe solicitar recuperar la contrase�a");
-					}	
-					else{
-						String pwd=org.apache.commons.codec.digest.DigestUtils.sha256Hex(usuario.getPassword());
-						if(loged.getRol().equals(Rol.INVITADO)){
-							if(usuario.getRol()==null){
-								usuario.setRol(Rol.CLIENTE);
-							}							
+				if(Utils.validateEmail(usuario.getEmail())==false){
+					throw new MyDAOException("Correo invalido");
+				}else if(userDao.getByEmail(usuario.getEmail())!=null){
+					throw new MyDAOException("El correo ya existe, debe solicitar recuperar la contrase�a");
+				}	
+				else{
+					String pwd=org.apache.commons.codec.digest.DigestUtils.sha256Hex(usuario.getPassword());
+					if(loged.getRol().equals(Rol.INVITADO)){
+						if(usuario.getRol()==null){
+							usuario.setRol(Rol.CLIENTE);
+						}							
+						usuario.setPassword(pwd);
+						if(usuario.getFechaCreacion()==null){
+							usuario.setFechaCreacion(new Date());
+						}
+						userDao.toSave(usuario);
+					}else if(loged.getRol().equals(Rol.ENCARGADO)){
+						if(usuario.getRol().equals(Rol.CLIENTE)){
 							usuario.setPassword(pwd);
 							if(usuario.getFechaCreacion()==null){
 								usuario.setFechaCreacion(new Date());
 							}
 							userDao.toSave(usuario);
-						}else if(loged.getRol().equals(Rol.ENCARGADO)){
-							if(usuario.getRol().equals(Rol.CLIENTE)){
-								usuario.setPassword(pwd);
-								if(usuario.getFechaCreacion()==null){
-									usuario.setFechaCreacion(new Date());
-								}
-								userDao.toSave(usuario);
-							}else if(usuario.getRol().equals(Rol.ENCARGADO)||usuario.getRol().equals(Rol.GERENTE)
-									||usuario.getRol().equals(Rol.INVITADO)){
-								throw new MyDAOException("No esta permitido crear ese tipo de usuarios con esas"
-										+ " credenciales");
+						}else if(usuario.getRol().equals(Rol.ENCARGADO)||usuario.getRol().equals(Rol.GERENTE)
+								||usuario.getRol().equals(Rol.INVITADO)){
+							throw new MyDAOException("No esta permitido crear ese tipo de usuarios con esas"
+									+ " credenciales");
+						}
+					}else if(loged.getRol().equals(Rol.GERENTE)){
+						if(!usuario.getRol().equals(Rol.INVITADO)){
+							usuario.setPassword(pwd);
+							if(usuario.getFechaCreacion()==null){
+								usuario.setFechaCreacion(new Date());
 							}
-						}else if(loged.getRol().equals(Rol.GERENTE)){
-							if(!usuario.getRol().equals(Rol.INVITADO)){
-								usuario.setPassword(pwd);
-								if(usuario.getFechaCreacion()==null){
-									usuario.setFechaCreacion(new Date());
-								}
-								userDao.toSave(usuario);
-							}else{
-								throw new MyDAOException("No esta permitido crear ese tipo de usuarios con esas"
-										+ " credenciales");
-							}
+							userDao.toSave(usuario);
 						}else{
-							throw new MyDAOException("Tienes que cerrar sesion para poder crear un nuevo usuario");
-						}	
-					}
-				}					
-			}	
-		}
+							throw new MyDAOException("No esta permitido crear ese tipo de usuarios con esas"
+									+ " credenciales");
+						}
+					}else{
+						throw new MyDAOException("Tienes que cerrar sesion para poder crear un nuevo usuario");
+					}	
+				}
+			}					
+		}	
+		
 	}
 
 	@Override

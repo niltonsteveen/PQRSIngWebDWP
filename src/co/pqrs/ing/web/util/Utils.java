@@ -51,5 +51,31 @@ public class Utils {
 			throw new MyDAOException(e);
 		}	
 	}
+	public static Rol crearRol(String rol) throws MyDAOException{
+		if(rol==null){
+			throw new MyDAOException("Rol no puede ser nulo");
+		}else if(rol.equalsIgnoreCase(Rol.CLIENTE.name())){
+			return Rol.CLIENTE;
+		}else if(rol.equalsIgnoreCase(Rol.ENCARGADO.name())){
+			return Rol.ENCARGADO;
+		}else if(rol.equalsIgnoreCase(Rol.GERENTE.name())){
+			return Rol.GERENTE;
+		}else if(rol.equalsIgnoreCase(Rol.INVITADO.name())){
+			return Rol.INVITADO;
+		}else{
+			throw new MyDAOException("El rol no existe");
+		}
+	}
+	
+	public static boolean validarRol(String rol){
+		if(rol==null){
+			return false;
+		}else if(rol.equalsIgnoreCase(Rol.CLIENTE.name())||rol.equalsIgnoreCase(Rol.ENCARGADO.name())||
+				rol.equalsIgnoreCase(Rol.GERENTE.name())||rol.equalsIgnoreCase(Rol.INVITADO.name())){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	
 }
