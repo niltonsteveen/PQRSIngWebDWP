@@ -1,8 +1,13 @@
 package co.pqrs.ing.web.ws.dto;
 
+import java.io.IOException;
 import java.util.Date;
 
+import javax.ws.rs.WebApplicationException;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.codehaus.jackson.JsonParser;
+import org.codehaus.jackson.map.ObjectMapper;
 
 import co.pqrs.ing.web.enums.Rol;
 
@@ -25,6 +30,19 @@ public class UsuariosWS {
 	private Rol rol;
 	private Date fechaCreacion;
 	private boolean habilitado;
+	
+	
+	public static UsuariosWS fromString(String jsonRepresentation){
+		ObjectMapper mapper=new ObjectMapper();
+		mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES,true);
+		UsuariosWS user=null;
+		try {
+			user=mapper.readValue(jsonRepresentation, UsuariosWS.class);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
 	
 	/**
 	 * Constructor sin atributos
@@ -59,6 +77,8 @@ public class UsuariosWS {
 		this.fechaCreacion = fechaCreacion;
 		this.habilitado = habilitado;
 	}
+	
+	
 	
 	/**
 	 * 
