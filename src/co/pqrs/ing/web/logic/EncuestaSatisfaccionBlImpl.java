@@ -55,7 +55,7 @@ public class EncuestaSatisfaccionBlImpl implements EncuestaSatisfaccionBI {
 				throw new MyDAOException("la encuesta debe estar basada en una plantilla", new NullPointerException());
 			}
 			StringBuilder bodyEmail = new StringBuilder();
-			bodyEmail.append("Se�or(a): ");
+			bodyEmail.append("Senor(a): ");
 			bodyEmail.append(encuesta.getSolicitud().getUsuario().getNombres());
 			bodyEmail.append(" ");
 			bodyEmail.append(encuesta.getSolicitud().getUsuario().getApellidos());
@@ -107,7 +107,7 @@ public class EncuestaSatisfaccionBlImpl implements EncuestaSatisfaccionBI {
 		}
 		EncuestaSatisfaccion encuestaSatisfaccion = encuestaSatDao.toGet(identificadorEncuesta);
 		if (encuestaSatisfaccion == null) {
-			throw new MyDAOException("el identificador de encusta no existe", new NullPointerException());
+			throw new MyDAOException("el identificador de encuesta no existe", new NullPointerException());
 		}
 		List<Pregunta> preguntas = preguntaBl.listarPreguntasByPlantilla(encuestaSatisfaccion.getPlantilla());
 		if(preguntas==null|| preguntas.size()==0){

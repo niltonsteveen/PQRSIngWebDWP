@@ -41,16 +41,16 @@ public class PreguntaBlImpl implements PreguntaBI {
 	}
 
 	@Override
-	public void agregarPregunta(Pregunta pregunta, PlantillaEncuesta plantilla) throws MyDAOException {
+	public void agregarPregunta(Pregunta pregunta) throws MyDAOException {
 		// TODO Auto-generated method stub
-		if(plantilla==null){
-			throw new MyDAOException("La plantilla no puede ser nula", new NullPointerException());
-		}else if(plantilla.getCodigo()==null){
-			throw new MyDAOException("El codigo de la plantilla no puede ser nulo", new NullPointerException());
-		}else if(pregunta==null){
+		 if(pregunta==null){
 			throw new MyDAOException("La pregunta no puede ser nula", new NullPointerException());
+		}else if(pregunta.getCodigo()==null){
+			throw new MyDAOException("El codigo de la plantilla no puede ser nulo", new NullPointerException());
 		}else if(pregunta.getPregunta()==null){
 			throw new MyDAOException("La pregunta no esta definida debe definir la pregunta", new NullPointerException());
+		}if(pregunta.getPlantilla()==null){
+			throw new MyDAOException("La plantilla no puede ser nula", new NullPointerException());
 		}else{
 			preguntaDao.toSave(pregunta);
 		}

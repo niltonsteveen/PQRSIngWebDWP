@@ -82,4 +82,5 @@ public class PlantillaEncuestaBlImpl implements PlantillaEncuestaBI {
 		}
 		return plantillaDao.getByTipo(tipo);
 	}
+	
 }
