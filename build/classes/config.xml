@@ -55,8 +55,14 @@
 	<bean id="UsuarioDao" class="co.pqrs.ing.web.dao.impl.UsuarioDAO">
 		<property name="sessionFactory" ref="mySessionFactory"></property>
 	</bean>	
+	<bean id="SucursalDao" class="co.pqrs.ing.web.dao.impl.SucursalDAO">
+		<property name="sessionFactory" ref="mySessionFactory"></property>
+	</bean>	
 	<bean id="usuarioBl" class="co.pqrs.ing.web.logic.UsuarioBlImpl">
 		<property name="userDao" ref="UsuarioDao"></property>
+	</bean>
+	<bean id="sucursalBl" class="co.pqrs.ing.web.logic.SucursalBlImpl">
+		<property name="sucursalDao" ref="SucursalDao"></property>
 	</bean>
 	<bean id="SolicitudPQRDao" class="co.pqrs.ing.web.dao.impl.SolicitudPQRDAO">
 		<property name="sessionFactory" ref="mySessionFactory"></property>

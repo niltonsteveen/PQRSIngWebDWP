@@ -80,8 +80,7 @@ public class SolicitudPQRBlImpl implements SolicitudPQRBl {
 		if(solicitudPQR.getUsuario()==null){
 			throw new MyDAOException("La solicitud tiene que tener un cliente asociado");
 		}
-		else if(solicitudPQR.getFechaCreacion()==null||solicitudPQR.getEstado()==null||
-				   solicitudPQR.getTipo()==null||"".equals(solicitudPQR.getDescripcion())){
+		else if(solicitudPQR.getTipo()==null||"".equals(solicitudPQR.getDescripcion())){
 					throw new MyDAOException("Se deben ingresar los datos que se marcan como obligatorios");
 		}else{
 			usrSolicitud=usuarioDAO.toGet(solicitudPQR.getUsuario().getUsername());
@@ -92,6 +91,12 @@ public class SolicitudPQRBlImpl implements SolicitudPQRBl {
 				if(usrSolicitud.getHabilitado()==false){
 					throw new MyDAOException("El usuario que crea la solicitud tiene que estar habilitado en el sistema");
 				}else{
+					if(solicitudPQR.getFechaCreacion()==null){
+						solicitudPQR.setFechaCreacion(new Date());
+					}
+					if(solicitudPQR.getEstado()==null){
+						solicitudPQR.setEstado(EstadoPQR.SIN_ATENDER);
+					}
 					pqrdao.toSave(solicitudPQR);
 				}
 			}
@@ -101,28 +106,34 @@ public class SolicitudPQRBlImpl implements SolicitudPQRBl {
 	@Override
 	public void cancelarPQR(SolicitudPQR solicitudPQR, Usuario usuario) throws MyDAOException {
 		// TODO Auto-generated method stub
-		if(usuario.getRol().equals(Rol.INVITADO)){
+		
+		if(usuario.getRol().equals(Rol.INVITADO)||usuario.getRol().equals(Rol.GERENTE)
+				||usuario.getRol().equals(Rol.ENCARGADO)){
 			throw new MyDAOException("Para cancelar una solicitud debe estar autenticado con sus "
 					+ "credenciales");
 		}if(solicitudPQR==null){
 			throw new MyDAOException("Debes seleccionar una solicitud para cancelar");	
-		}else if(usuario.getRol().equals(Rol.CLIENTE)&&solicitudPQR.getEstado()!=EstadoPQR.SIN_ATENDER){
-			if(solicitudPQR.getEstado().equals(EstadoPQR.EN_CURSO)){
-				throw new MyDAOException("No puedes cancelar una solicitud que esta en curso");
-			}else if(solicitudPQR.getEstado().equals(EstadoPQR.RESUELTA_NEGATIVAMENTE)||
-					solicitudPQR.getEstado().equals(EstadoPQR.RESUELTA_NEGATIVAMENTE)){
-				throw new MyDAOException("No se puede cancelar una solicitud que ya esta resuelta");
+		}else{	
+			String userSolicitud=solicitudPQR.getUsuario().getUsername();
+			String userRealiza=usuario.getUsername();
+			if(usuario.getRol().equals(Rol.CLIENTE)){
+				if(solicitudPQR.getEstado().equals(EstadoPQR.RESUELTA_NEGATIVAMENTE)||
+						solicitudPQR.getEstado().equals(EstadoPQR.RESUELTA_NEGATIVAMENTE)){
+					throw new MyDAOException("No se puede cancelar una solicitud que ya esta resuelta");
+				}else if(userSolicitud.equals(userRealiza)){
+					solicitudPQR.setEstado(EstadoPQR.CANCELADA);
+					pqrdao.toUpdate(solicitudPQR);
+				}else{
+					throw new MyDAOException("No puedes cancelar la solicitud de otro usuario");
+				}
 			}
-		}else{
-			pqrdao.toDelete(solicitudPQR);
 		}
-		
 	}
 
 	@Override
 	public List<SolicitudPQR> notificarPQR(Usuario usuario) throws MyDAOException {
 		// TODO Auto-generated method stub
-		List<SolicitudPQR> pqrs;
+		List<SolicitudPQR> pqrs=null;
 		if(!usuario.getRol().equals(Rol.CLIENTE)&&!usuario.getRol().equals(Rol.INVITADO)){
 			pqrs=pqrdao.toListByState();
 			for(int i=0;i<pqrs.size();i++){

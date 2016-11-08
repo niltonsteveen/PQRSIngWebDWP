@@ -4,7 +4,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import co.pqrs.ing.web.db.Usuario;
+import co.pqrs.ing.web.enums.EstadoPQR;
 import co.pqrs.ing.web.enums.Rol;
+import co.pqrs.ing.web.enums.TipoPQR;
 import co.pqrs.ing.web.exception.MyDAOException;
 
 /**
@@ -67,15 +69,38 @@ public class Utils {
 		}
 	}
 	
-	public static boolean validarRol(String rol){
-		if(rol==null){
-			return false;
-		}else if(rol.equalsIgnoreCase(Rol.CLIENTE.name())||rol.equalsIgnoreCase(Rol.ENCARGADO.name())||
-				rol.equalsIgnoreCase(Rol.GERENTE.name())||rol.equalsIgnoreCase(Rol.INVITADO.name())){
-			return true;
+	public static TipoPQR crearTipo(String tipoPQR) throws MyDAOException{
+		if(tipoPQR==null){
+			throw new MyDAOException("pqr no puede ser nulo");
+		}else if(tipoPQR.equalsIgnoreCase(TipoPQR.PETICION.name())){
+			return TipoPQR.PETICION;
+		}else if(tipoPQR.equalsIgnoreCase(TipoPQR.QUEJA.name())){
+			return TipoPQR.QUEJA;
+		}else if(tipoPQR.equalsIgnoreCase(TipoPQR.RECLAMO.name())){
+			return TipoPQR.RECLAMO;
+		}else if(tipoPQR.equalsIgnoreCase(TipoPQR.SUGERENCIA.name())){
+			return TipoPQR.SUGERENCIA;
 		}else{
-			return false;
+			throw new MyDAOException("El rol no existe");
 		}
 	}
 	
+	public static EstadoPQR crearEstado(String estado) throws MyDAOException{
+		if(estado==null){
+			throw new MyDAOException("Estado no puede ser nulo");
+		}else if(estado.equalsIgnoreCase(EstadoPQR.CANCELADA.name())){
+			return EstadoPQR.CANCELADA;
+		}else if(estado.equalsIgnoreCase(EstadoPQR.EN_CURSO.name())){
+			return EstadoPQR.EN_CURSO;
+		}else if(estado.equalsIgnoreCase(EstadoPQR.RESUELTA_NEGATIVAMENTE.name())){
+			return EstadoPQR.RESUELTA_NEGATIVAMENTE;
+		}else if(estado.equalsIgnoreCase(EstadoPQR.RESUELTA_POSITIVAMENTE.name())){
+			return EstadoPQR.RESUELTA_POSITIVAMENTE;
+		}else if(estado.equalsIgnoreCase(EstadoPQR.SIN_ATENDER.name())){
+			return EstadoPQR.SIN_ATENDER;
+		}else{
+			throw new MyDAOException("El estado no existe");
+		}
+	}
+
 }
