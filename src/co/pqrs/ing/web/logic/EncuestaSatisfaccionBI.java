@@ -1,6 +1,7 @@
 package co.pqrs.ing.web.logic;
 
 import co.pqrs.ing.web.db.EncuestaSatisfaccion;
+import co.pqrs.ing.web.db.SolicitudPQR;
 import co.pqrs.ing.web.exception.MyDAOException;
 
 /**
@@ -36,4 +37,11 @@ public interface EncuestaSatisfaccionBI {
 	 * @throws MyDAOException: Cuando se hace referencia a un objeto nulo
 	 */
 	public EncuestaSatisfaccion cargarEncuesta(Long idEncuesta) throws MyDAOException;
+	/**
+	 * @param idEncuesta: Identificador o PK de una solicitud
+	 * @return Objeto encuesta vinculada a la solicitud
+	 * @throws MyDAOException: Cuando se hace referencia a un objeto nulo
+	 */
+	public EncuestaSatisfaccion cargarEncuestaBySolicitud(Long solicitudId)  throws MyDAOException;
+	
 }

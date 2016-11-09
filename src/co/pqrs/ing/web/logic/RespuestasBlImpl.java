@@ -65,16 +65,16 @@ public class RespuestasBlImpl implements RespuestasBI {
 	}
 
 	@Override
-	public void listarRespuestasByEncuesta(EncuestaSatisfaccion encuesta) throws MyDAOException {
+	public List<Respuesta> listarRespuestasByEncuesta(EncuestaSatisfaccion encuesta) throws MyDAOException {
 		// TODO Auto-generated method stub
 		if (encuesta == null) {
 			throw new MyDAOException("La respuesta debe estar diligenciada", new NullPointerException());
 		} else if (encuesta.getCodigo() == null) {
-			throw new MyDAOException("El codigo de ", new NullPointerException());
+			throw new MyDAOException("El codigo de la encuesta no puede ser nulo ", new NullPointerException());
 		} else if (encuestaSatisfacionDao.toGet(encuesta.getCodigo()) == null) {
 			throw new MyDAOException("La encuesta de satisfaccion no existe ");
 		} else {
-			respuestaDao.getByEncuesta(encuesta);
+			return respuestaDao.getByEncuesta(encuesta);
 		}
 	}
 

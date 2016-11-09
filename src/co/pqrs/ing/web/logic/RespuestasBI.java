@@ -25,5 +25,5 @@ public interface RespuestasBI {
 		 * @throws MyDAOException
 		 * Lista todas las respuestas de una encuesta
 		 */
-		public void listarRespuestasByEncuesta(EncuestaSatisfaccion encuesta) throws MyDAOException;	
+		public List<Respuesta> listarRespuestasByEncuesta(EncuestaSatisfaccion encuesta) throws MyDAOException;	
 }

@@ -1,7 +1,6 @@
 package co.pqrs.ing.web.util;
 
 import java.util.Date;
-import java.util.List;
 
 import co.pqrs.ing.web.db.EncuestaSatisfaccion;
 import co.pqrs.ing.web.db.PlantillaEncuesta;
@@ -106,6 +105,18 @@ public class Utilities {
 		
 	}
 	
+	public static RespuestaWS convertirRespuesta(Respuesta respuesta) throws MyDAOException{
+		if(respuesta==null){
+			throw new MyDAOException("La respuesta no puede ser nula");
+		}
+		RespuestaWS respuestaWs= new RespuestaWS();
+		respuestaWs.setCodigo(respuesta.getCodigo());
+		respuestaWs.setEncuestaId(convertirEncuesta(respuesta.getEncuesta()));
+		respuestaWs.setPregunta(convertirpregunta(respuesta.getPregunta()));
+		respuestaWs.setRespuesta(respuesta.getRespuesta());
+		return respuestaWs;	
+		
+	}
 	
 	
 	public static TipoPQR crearTipoPQR(String tipo) throws MyDAOException{

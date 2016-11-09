@@ -126,6 +126,16 @@ public class EncuestaSatisfaccionBlImpl implements EncuestaSatisfaccionBI {
 		}
 		return encuestaSatDao.toGet(idEncuesta);
 	}
+
+	@Override
+	public EncuestaSatisfaccion cargarEncuestaBySolicitud(Long solicitudId) throws MyDAOException {
+		// TODO Auto-generated method stub
+		if(solicitudId==null){
+			throw new MyDAOException("El identificador de la solicitud no puede ser nulo", new NullPointerException());
+		}
+		
+		return encuestaSatDao.getEncuestaBySolicitud(solicitudId);
+	}
 	
 	
 }
