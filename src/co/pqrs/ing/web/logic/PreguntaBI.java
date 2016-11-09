@@ -1,3 +1,4 @@
+
 package co.pqrs.ing.web.logic;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public interface PreguntaBI {
 	 * @throws MyDAOException
 	 * Agrega una pregunta a la plantilla seleccionada
 	 */
-	public void agregarPregunta(Pregunta pregunta, PlantillaEncuesta plantilla) throws MyDAOException;
+	public void agregarPregunta(Pregunta pregunta) throws MyDAOException;
 	/**
 	 * @param pregunta: Objeto de la clase Pregunta
 	 * @throws MyDAOException
