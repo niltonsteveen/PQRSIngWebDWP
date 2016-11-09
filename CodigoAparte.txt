@@ -1,4 +1,7 @@
 //Para crear solicitud en el WS faltaria:
+//Hay que modificar el getUserById para manejar exepciones
+// Hay que modificar el getsucursalById para manejar execpciones en la logica
+
 @QueryParam("sucursal") Long codigo
 
 Sucursal sucursal=null;
@@ -17,31 +20,68 @@ result.setSucursal(sucursal);
 @Path("GetById")
 @Produces(MediaType.APPLICATION_JSON)
 public SolicitudPQRWS getSolicitudById(@QueryParam("solicitud")Long solicitud)throws RemoteException{
-		SolicitudPQRWS result=new SolicitudPQRWS();
-		SolicitudPQR pqr=null;
-		try {
-			pqr=pqrBl.getSolicitudById(solicitud);
-      if(pqr!=null){
-        result.setusuarioId(pqr.getUsuario());
-        result.setFechaCreacion(pqr.getFechaCreacion());
-        result.setFechaAtencion(pqr.getFechaAtencion());
-        result.setFechaResolucion(pqr.getFechaResolucion());
-        result.setEstado(pqr.getEstado());
-        result.setUsuarioDelegadoId(pqr.getUsuarioDelegado());
-        result.setUsuarioResuelveId(pqr.getUsuarioResuelve());
-        result.setSucursalId(pqr.getSucursal());
-        result.setTipo(pqr.getTipo());
-        result.setDescripcion(pqr.getDescripcion());
-        result.setRespuesta(pqr.getRespuesta());
-      }else{
-        throw new NullPointerException("La solicitud ingresada no existe");
-      }	
-		} catch (MyDAOException e) {
-			throw new RemoteException(e.getMessage(),e);
-		}
-		
-		return result;
-	}
+	SolicitudPQRWS result=new SolicitudPQRWS();
+	SolicitudPQR pqr=null;
+	try {
+		pqr=pqrBl.getSolicitudById(solicitud);
+		if(pqr!=null){//omitirlo cuando ya se halla modificado la clase en la logica
+			result.setusuarioId(pqr.getUsuario());
+			result.setFechaCreacion(pqr.getFechaCreacion());
+			result.setFechaAtencion(pqr.getFechaAtencion());
+			result.setFechaResolucion(pqr.getFechaResolucion());
+			result.setEstado(pqr.getEstado());
+			result.setUsuarioDelegadoId(pqr.getUsuarioDelegado());
+			result.setUsuarioResuelveId(pqr.getUsuarioResuelve());
+			result.setSucursalId(pqr.getSucursal());
+			result.setTipo(pqr.getTipo());
+			result.setDescripcion(pqr.getDescripcion());
+			result.setRespuesta(pqr.getRespuesta());
+		}else{
+		throw new NullPointerException("La solicitud ingresada no existe");
+		}	
+	} catch (MyDAOException e) {
+		throw new RemoteException(e.getMessage(),e);
+	}	
+	return result;
+}
+
+@GET
+@Path("Delegar")
+@Produces(MediaType.APPLICATION_JSON)
+public SolicitudPQRWS delegarPQR(@QueryParam("solicitud")Long solicitud,@QueryParam("encargado")String username, 				@QueryParam("logedUser")String user, @QueryParam("password")String password)throws RemoteException{
+
+	SolicitudPQRWS result=new SolicitudPQRWS();
+	SolicitudPQR pqr=null;
+	Usuario userEncargado=null;
+	Usuario userLoged=null;
+	try {
+		pqr=pqrBl.getSolicitudById(solicitud);
+		userEncargado=usuarioBl.getUserById(username); 
+		userLoged=usuarioBl.getUserById(user);
+		userLoged=usuarioBl.validarUsuario(userLoged.getUsername(),password);
+		if(pqr!=null){//omitirlo cuando ya se halla modificado la clase en la logica
+			result.setusuarioId(pqr.getUsuario());
+			result.setFechaCreacion(pqr.getFechaCreacion());
+			result.setFechaAtencion(pqr.getFechaAtencion());
+			result.setFechaResolucion(pqr.getFechaResolucion());
+			result.setEstado(pqr.getEstado());
+			result.setUsuarioDelegadoId(pqr.getUsuarioDelegado());
+			result.setUsuarioResuelveId(pqr.getUsuarioResuelve());
+			result.setSucursalId(pqr.getSucursal());
+			result.setTipo(pqr.getTipo());
+			result.setDescripcion(pqr.getDescripcion());
+			result.setRespuesta(pqr.getRespuesta());
+		}else{
+		throw new NullPointerException("La solicitud ingresada no existe");
+		}	
+	} catch (MyDAOException e) {
+		throw new RemoteException(e.getMessage(),e);
+	}	
+	return result;
+}
+
+
+
   
   
   
