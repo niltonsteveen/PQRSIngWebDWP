@@ -12,8 +12,10 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import co.pqrs.ing.web.db.EncuestaSatisfaccion;
 import co.pqrs.ing.web.db.PlantillaEncuesta;
 import co.pqrs.ing.web.db.Pregunta;
+import co.pqrs.ing.web.db.Respuesta;
 import co.pqrs.ing.web.db.Usuario;
 import co.pqrs.ing.web.exception.MyDAOException;
 import co.pqrs.ing.web.logic.EncuestaSatisfaccionBI;
@@ -23,8 +25,10 @@ import co.pqrs.ing.web.logic.RespuestasBI;
 import co.pqrs.ing.web.logic.UsuarioBl;
 import co.pqrs.ing.web.util.Utilities;
 import co.pqrs.ing.web.util.Utils;
+import co.pqrs.ing.web.ws.dto.EncuestaWS;
 import co.pqrs.ing.web.ws.dto.PlantillaEncuestaWS;
 import co.pqrs.ing.web.ws.dto.PreguntaWS;
+import co.pqrs.ing.web.ws.dto.RespuestaWS;
 
 /**
  * @author Alejandro Serna - Email: alejandro.serna3@gmail.com
@@ -169,13 +173,102 @@ public class ServicioEncuesta {
 			}else{
 				throw new RemoteException("Este usuario no tiene permitido listar preguntas");
 			}
-		
 		} catch (MyDAOException e) {
 			throw new RemoteException(e.getMessage());
 		}
 	}
    
 	
+	@GET
+	@Path("PresentarEncuestaCliente")
+	@Produces(MediaType.APPLICATION_JSON)
+	public EncuestaWS presentarEncuesta(@QueryParam("codigo")Long codigoEncuesta, @QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
+		try {
+			Usuario loged = usuarioBl.validarUsuario(user, pass);
+			if(loged!=null){
+				EncuestaSatisfaccion encuesta= encuestaBl.cargarEncuesta(codigoEncuesta);
+				if(encuesta!=null){
+					EncuestaWS encuestaWs = new EncuestaWS();
+					List<Pregunta> preguntas = preguntaBl.listarPreguntasByPlantilla(encuesta.getPlantilla());
+					List<PreguntaWS> preguntasWs = new LinkedList<>();
+					for(Pregunta p: preguntas){
+						PreguntaWS preguntaWs = Utilities.convertirpregunta(p);
+						preguntasWs.add(preguntaWs);
+					}
+					encuestaWs.setPreguntas(preguntasWs);
+					return encuestaWs;
+				}else{
+					throw new MyDAOException("La encuesta solicitada no existe");
+				}
+				
+			}else{
+				throw new RemoteException("Este usuario no tiene permitido responder esta encuesta ");
+			}
+		} catch (MyDAOException e) {
+			throw new RemoteException(e.getMessage());
+		}
+	}
+	
+	@GET
+	@Path("ResponderEncuesta")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void responderEncuesta(@QueryParam("codigo")List<RespuestaWS> respuestas, @QueryParam("codigoEncuesta")Long codigoEncuesta, @QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
+		try {
+			Usuario loged = usuarioBl.validarUsuario(user, pass);
+			if(loged!=null){
+				if(respuestas!=null&&respuestas.size()>0){
+					EncuestaSatisfaccion encuesta= encuestaBl.cargarEncuesta(codigoEncuesta);
+					if(encuesta!=null){
+						List<Respuesta> respuestasBd= new LinkedList<>();
+						for(RespuestaWS r: respuestas){
+							Respuesta resp= Utilities.convertirRespuesta(r, codigoEncuesta);
+							respuestasBd.add(resp);
+						}
+						respuestaBl.guardarRespuestas(respuestasBd);
+					}else{
+						throw new MyDAOException("la encuesta que intenta responder no existe");
+					}				
+				}else{
+					throw new MyDAOException("Debe consignar al menos una respuesta");
+				}
+				
+			}else{
+				throw new RemoteException("Este usuario no tiene permitido responder esta encuesta ");
+			}
+		} catch (MyDAOException e) {
+			throw new RemoteException(e.getMessage());
+		}
+	}
 	
 	
+	
+	@GET
+	@Path("PresentarEncuestaAdministrador")
+	@Produces(MediaType.APPLICATION_JSON)
+	public EncuestaWS presentarEncuestaAdministrador(@QueryParam("codigo")Long codigoEncuesta, @QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
+		try {
+			Usuario loged = usuarioBl.validarUsuario(user, pass);
+			if(loged!=null){
+				EncuestaSatisfaccion encuesta= encuestaBl.cargarEncuesta(codigoEncuesta);
+				if(encuesta!=null){
+					EncuestaWS encuestaWs = new EncuestaWS();
+					List<Pregunta> preguntas = preguntaBl.listarPreguntasByPlantilla(encuesta.getPlantilla());
+					List<PreguntaWS> preguntasWs = new LinkedList<>();
+					for(Pregunta p: preguntas){
+						PreguntaWS preguntaWs = Utilities.convertirpregunta(p);
+						preguntasWs.add(preguntaWs);
+					}
+					encuestaWs.setPreguntas(preguntasWs);
+					return encuestaWs;
+				}else{
+					throw new MyDAOException("La encuesta solicitada no existe");
+				}
+				
+			}else{
+				throw new RemoteException("Este usuario no tiene permitido responder esta encuesta ");
+			}
+		} catch (MyDAOException e) {
+			throw new RemoteException(e.getMessage());
+		}
+	}
 }

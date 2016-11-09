@@ -4,9 +4,12 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.map.ObjectMapper;
 
+@XmlRootElement
 public class EncuestaWS {
 
 	
