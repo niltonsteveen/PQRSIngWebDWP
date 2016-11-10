@@ -11,6 +11,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import co.pqrs.ing.web.db.EncuestaSatisfaccion;
 import co.pqrs.ing.web.db.PlantillaEncuesta;
@@ -37,8 +38,49 @@ import co.pqrs.ing.web.ws.dto.RespuestaWS;
  * @version 1.0.0
  * Clase que implementa los metodos de la interfaz EncuestaSatisfaccionBI 
  */
+@Component
 @Path("Encuesta")
 public class ServicioEncuesta {
+
+	public UsuarioBl getUsuarioBl() {
+		return usuarioBl;
+	}
+
+	public void setUsuarioBl(UsuarioBl usuarioBl) {
+		this.usuarioBl = usuarioBl;
+	}
+
+	public PlantillaEncuestaBI getPlantillaBl() {
+		return plantillaBl;
+	}
+
+	public void setPlantillaBl(PlantillaEncuestaBI plantillaBl) {
+		this.plantillaBl = plantillaBl;
+	}
+
+	public PreguntaBI getPreguntaBl() {
+		return preguntaBl;
+	}
+
+	public void setPreguntaBl(PreguntaBI preguntaBl) {
+		this.preguntaBl = preguntaBl;
+	}
+
+	public RespuestasBI getRespuestaBl() {
+		return respuestaBl;
+	}
+
+	public void setRespuestaBl(RespuestasBI respuestaBl) {
+		this.respuestaBl = respuestaBl;
+	}
+
+	public EncuestaSatisfaccionBI getEncuestaBl() {
+		return encuestaBl;
+	}
+
+	public void setEncuestaBl(EncuestaSatisfaccionBI encuestaBl) {
+		this.encuestaBl = encuestaBl;
+	}
 
 	@Autowired
 	UsuarioBl usuarioBl;
