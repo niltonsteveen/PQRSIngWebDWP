@@ -186,6 +186,9 @@ public class UsuarioBlImpl implements UsuarioBl {
 	public Usuario getUserById(String username) throws MyDAOException {
 		Usuario usuario;
 		usuario=userDao.toGet(username);
+		if(usuario==null){
+			throw new MyDAOException("EL usuario no fue encontrado en base de datos");
+		}
 		return usuario;
 	}
 

@@ -55,12 +55,39 @@
 	<bean id="UsuarioDao" class="co.pqrs.ing.web.dao.impl.UsuarioDAO">
 		<property name="sessionFactory" ref="mySessionFactory"></property>
 	</bean>	
+	<bean id="EncuestaSatisfaccionDao" class="co.pqrs.ing.web.dao.impl.EncuestaSatisfaccionDAO">
+		<property name="sessionFactory" ref="mySessionFactory"></property>
+	</bean>	
+	<bean id="PlantillaEncuestaDAO" class="co.pqrs.ing.web.dao.impl.PlantillaEncuestaDAO">
+		<property name="sessionFactory" ref="mySessionFactory"></property>
+	</bean>	
+	<bean id="PreguntaDAO" class="co.pqrs.ing.web.dao.impl.PreguntaDAO">
+		<property name="sessionFactory" ref="mySessionFactory"></property>
+	</bean>
+	<bean id="RespuestaDAO" class="co.pqrs.ing.web.dao.impl.RespuestaDAO">
+		<property name="sessionFactory" ref="mySessionFactory"></property>
+	</bean>		
 	<bean id="SucursalDao" class="co.pqrs.ing.web.dao.impl.SucursalDAO">
 		<property name="sessionFactory" ref="mySessionFactory"></property>
 	</bean>	
 	<bean id="usuarioBl" class="co.pqrs.ing.web.logic.UsuarioBlImpl">
 		<property name="userDao" ref="UsuarioDao"></property>
 	</bean>
+	<bean id="encuestaBl" class="co.pqrs.ing.web.logic.EncuestaSatisfaccionBlImpl">
+		<property name="encuestaSatDao" ref="EncuestaSatisfaccionDao"></property>
+		<property name="preguntaBl" ref="PreguntaDAO"></property>
+	</bean>
+	<bean id="plantillaBl" class="co.pqrs.ing.web.logic.PlantillaEncuestaBlImpl">
+		<property name="plantillaDao" ref="PlantillaEncuestaDAO"></property>
+	</bean>
+	<bean id="preguntaBl" class="co.pqrs.ing.web.logic.PreguntaBlImpl">
+		<property name="preguntaDao" ref="PreguntaDAO"></property>
+	</bean>
+	<bean id="respuestaBl" class="co.pqrs.ing.web.logic.RespuestasBlImpl">
+		<property name="respuestaDao" ref="RespuestaDAO"></property>
+		<property name="encuestaSatisfacionDao" ref="EncuestaSatisfaccionDao"></property>
+	</bean>
+	
 	<bean id="sucursalBl" class="co.pqrs.ing.web.logic.SucursalBlImpl">
 		<property name="sucursalDao" ref="SucursalDao"></property>
 	</bean>

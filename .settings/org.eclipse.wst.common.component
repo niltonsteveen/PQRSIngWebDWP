@@ -3,6 +3,141 @@
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
+        <dependent-module archiveName="jersey-spring-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/contribs/jersey-spring-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="dom4j-1.6.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/LibreriasHibernate/dom4j-1.6.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oauth-signature-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/contribs/oauth-signature-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="log4j-1.2.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/apache-log4j-1.2.17/apache-log4j-1.2.17/log4j-1.2.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oauth-client-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/contribs/oauth-client-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-core-asl-1.5.5.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/lib/jackson-core-asl-1.5.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mail-1.4.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/mail-1.4.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-web-4.1.6.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/Spring4/spring-web-4.1.6.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-mapper-asl-1.5.5.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/lib/jackson-mapper-asl-1.5.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.6.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/LibreriasHibernate/slf4j-api-1.6.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-multipart-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/contribs/jersey-multipart-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-server-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/lib/jersey-server-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-orm-4.1.6.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/Spring4/spring-orm-4.1.6.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsr311-api-1.1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/lib/jsr311-api-1.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-test-4.1.6.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/Spring4/spring-test-4.1.6.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-aop-4.1.6.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/Spring4/spring-aop-4.1.6.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-apache-client-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/contribs/jersey-apache-client-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-json-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/lib/jersey-json-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-beans-4.1.6.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/Spring4/spring-beans-4.1.6.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-context-4.1.6.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/Spring4/spring-context-4.1.6.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-atom-abdera-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/contribs/jersey-atom-abdera-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-xc-1.5.5.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/lib/jackson-xc-1.5.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="antlr-2.7.6.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/LibreriasHibernate/antlr-2.7.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-tx-4.1.6.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/Spring4/spring-tx-4.1.6.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-core-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/lib/jersey-core-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jettison-1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/lib/jettison-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-expression-4.1.6.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/Spring4/spring-expression-4.1.6.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-client-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/lib/jersey-client-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-jdbc-4.1.6.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/Spring4/spring-jdbc-4.1.6.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-simple-server-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/contribs/jersey-simple-server-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javassist-3.12.0.GA.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/LibreriasHibernate/javassist-3.12.0.GA.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-guice-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/contribs/jersey-guice-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/Spring4/commons-logging.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.springsource.org.aopalliance-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/Spring4/com.springsource.org.aopalliance-1.0.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-collections-3.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/LibreriasHibernate/commons-collections-3.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oauth-server-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/contribs/oauth-server-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-core-4.1.6.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/Spring4/spring-core-4.1.6.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-jaxrs-1.5.5.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/lib/jackson-jaxrs-1.5.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-log4j12-1.7.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/LibreriasHibernate/slf4j-log4j12-1.7.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mysql-connector-java-5.1.22-bin.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/mysql-connector-java-5.1.22-bin.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-codec-1.10.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/commons-codec-1.10.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="asm-3.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/jersey-archive-1.4/jersey-archive-1.4/lib/asm-3.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/LibreriasHibernate/hibernate3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate-jpa-2.0-api-1.0.1.Final.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/LibreriasHibernate/hibernate-jpa-2.0-api-1.0.1.Final.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jta-1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/nilton/Descargas/LibreriasHibernate/jta-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="PQRSIngWebDWP"/>
         <property name="java-output-path" value="/PQRSIngWebDWP/build/classes"/>
     </wb-module>

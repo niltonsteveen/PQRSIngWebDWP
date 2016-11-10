@@ -149,11 +149,13 @@ public class ServicioUsuarios {
 	@GET
 	@Path("actualizar")
 	@Produces(MediaType.TEXT_HTML)
-	public String updateUser(@QueryParam("usuario")UsuariosWS user,@QueryParam("loged")String usernameLoged )throws RemoteException, ParseException{
+	public String updateUser(@QueryParam("usuario")UsuariosWS user,@QueryParam("loged")String usernameLoged, 
+			@QueryParam("password")String pwd)throws RemoteException, ParseException{
 		Usuario result=new Usuario();
 		Usuario loged=null;
 		try {
 			loged=usuarioBl.getUserById(usernameLoged);
+			loged=usuarioBl.validarUsuario(usernameLoged, pwd);
 			result.setApellidos(user.getApellidos());
 			result.setEmail(user.getCorreo());
 			result.setDireccion(user.getDireccion());
@@ -164,7 +166,7 @@ public class ServicioUsuarios {
 			result.setRol(rol);
 			result.setToken(user.getToken());
 			result.setUsername(user.getUsername());
-			usuarioBl.crearUsuario(result, loged);
+			usuarioBl.actualizarUsuario(result, loged);
 			return "El usuario " + result.getUsername() + " ha sido actualizado satisfactoriamente"; 
 			
 		} catch (MyDAOException e) { 

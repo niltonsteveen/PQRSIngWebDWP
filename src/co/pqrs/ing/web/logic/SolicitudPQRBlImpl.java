@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import co.pqrs.ing.web.dao.impl.SolicitudPQRDAO;
 import co.pqrs.ing.web.dao.impl.UsuarioDAO;
+import co.pqrs.ing.web.db.EncuestaSatisfaccion;
+import co.pqrs.ing.web.db.PlantillaEncuesta;
 import co.pqrs.ing.web.db.SolicitudPQR;
 import co.pqrs.ing.web.db.Usuario;
 import co.pqrs.ing.web.enums.EstadoPQR;
@@ -148,6 +150,9 @@ public class SolicitudPQRBlImpl implements SolicitudPQRBl {
 	@Override
 	public SolicitudPQR getSolicitudById(Long id) throws MyDAOException {
 		SolicitudPQR pqr=pqrdao.toGet(id);
+		if(pqr==null){
+			throw new MyDAOException("La solicitud buscada no existe en base de datos");
+		}
 		return pqr;
 	}
 
@@ -174,11 +179,12 @@ public class SolicitudPQRBlImpl implements SolicitudPQRBl {
 	@Override
 	public void responderPQR(Long solicitudId, Usuario encargado, String respuesta) throws MyDAOException {
 		// TODO Auto-generated method stub
+		
 		if(solicitudId==null){
 			throw new MyDAOException("la solicitud no puede ser nula");
 		}
 		if(Utils.validarAdmin(encargado)){
-			SolicitudPQR solicitudPqr= pqrdao.toGet(solicitudId);
+			SolicitudPQR solicitudPqr= this.getSolicitudById(solicitudId);
 			solicitudPqr.setUsuarioResuelve(encargado);
 			solicitudPqr.setFechaResolucion(new Date());
 			solicitudPqr.setRespuesta(respuesta);
@@ -202,7 +208,7 @@ public class SolicitudPQRBlImpl implements SolicitudPQRBl {
 			
 			
 			}
-			/*EncuestaSatisfaccion encuesta= new EncuestaSatisfaccion();
+			EncuestaSatisfaccion encuesta= new EncuestaSatisfaccion();
 			PlantillaEncuesta plantilla = plantillaEncuestaBl.obtenerPorTipo(solicitudPqr.getTipo());
 			if(plantilla==null){
 				throw new MyDAOException("no existe plantilla para este tipo de PQR");
@@ -212,7 +218,7 @@ public class SolicitudPQRBlImpl implements SolicitudPQRBl {
 			encuesta.setFechaCreacion(new Date());
 			Long idEncuesta = encuestaSatisfaccionBl.guardarEncuesta(encuesta);
 			encuesta = encuestaSatisfaccionBl.cargarEncuesta(idEncuesta);
-			encuestaSatisfaccionBl.enviarEncuestaSatisfaccion(encuesta);*/
+			encuestaSatisfaccionBl.enviarEncuestaSatisfaccion(encuesta);
 			
 	}else{
 		throw new MyDAOException("No cuenta con los permisos necesarios");

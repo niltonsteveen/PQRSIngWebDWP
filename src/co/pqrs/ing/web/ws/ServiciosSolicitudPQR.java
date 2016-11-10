@@ -72,12 +72,15 @@ public class ServiciosSolicitudPQR {
 		SolicitudPQR result=new SolicitudPQR();
 		Usuario loged=null;
 		Usuario userSolicitud=null;
+		Sucursal sucursal=null;
 		try {
 			loged=usuarioBl.getUserById(userId);
 			loged=usuarioBl.validarUsuario(loged.getUsername(),pwd);
 			result.setDescripcion(pqr.getDescripcion());
 			TipoPQR tipoPQR=Utils.crearTipo(pqr.getTipo());
 			result.setTipo(tipoPQR);
+			sucursal=sucursalBl.getSucursalById(pqr.getSucursalId());
+			result.setSucursal(sucursal);
 			userSolicitud=usuarioBl.getUserById(pqr.getUsuarioId());
 			if(userSolicitud!=null){
 				result.setUsuario(userSolicitud);
@@ -149,4 +152,90 @@ public class ServiciosSolicitudPQR {
 		return result;
 	}
 	
+	@GET
+	@Path("GetById")
+	@Produces(MediaType.APPLICATION_JSON)
+	public SolicitudPQRWS getSolicitudById(@QueryParam("solicitud")Long solicitud)throws RemoteException{
+		SolicitudPQRWS result=new SolicitudPQRWS();
+		SolicitudPQR pqr=null;
+		try {
+			pqr=pqrBl.getSolicitudById(solicitud);
+			result.setUsuarioId(pqr.getUsuario().getUsername());
+			result.setFechaCreacion(pqr.getFechaCreacion());
+			result.setFechaAtencion(pqr.getFechaAtencion());
+			result.setFechaResolucion(pqr.getFechaResolucion());
+			result.setEstado(pqr.getEstado().name());
+			result.setUsuarioDelegadoId(pqr.getUsuarioDelegado().getUsername());
+			result.setUsuarioResuelveId(pqr.getUsuarioResuelve().getUsername());
+			result.setSucursalId(pqr.getSucursal().getCodigo());
+			result.setTipo(pqr.getTipo().name());
+			result.setDescripcion(pqr.getDescripcion());
+			result.setRespuesta(pqr.getRespuesta());
+		} catch (MyDAOException e) {
+			throw new RemoteException(e.getMessage(),e);
+		}	
+		return result;
+	}
+	
+	
+	@GET
+	@Path("Delegar")
+	@Produces(MediaType.APPLICATION_JSON)
+	public SolicitudPQRWS delegarPQR(@QueryParam("solicitud")Long solicitud,
+			@QueryParam("encargado")String username,
+			@QueryParam("logedUser")String user,
+			@QueryParam("password")String password)throws RemoteException{
+
+		SolicitudPQRWS result=new SolicitudPQRWS();
+		SolicitudPQR pqr=null;
+		Usuario userEncargado=null;
+		Usuario userLoged=null;
+		try {
+			pqr=pqrBl.getSolicitudById(solicitud);
+			userEncargado=usuarioBl.getUserById(username); 
+			userLoged=usuarioBl.getUserById(user);
+			userLoged=usuarioBl.validarUsuario(userLoged.getUsername(),password);
+			result.setUsuarioId(pqr.getUsuario().getUsername());
+			result.setFechaCreacion(pqr.getFechaCreacion());
+			result.setFechaAtencion(pqr.getFechaAtencion());
+			result.setFechaResolucion(pqr.getFechaResolucion());
+			result.setEstado(pqr.getEstado().name());
+			result.setUsuarioDelegadoId(pqr.getUsuarioDelegado().getUsername());
+			result.setUsuarioResuelveId(pqr.getUsuarioResuelve().getUsername());
+			result.setSucursalId(pqr.getSucursal().getCodigo());
+			result.setTipo(pqr.getTipo().name());
+			result.setDescripcion(pqr.getDescripcion());
+			result.setRespuesta(pqr.getRespuesta());
+			pqrBl.delegarPQR(solicitud, userEncargado,userLoged);
+			
+		} catch (MyDAOException e) {
+			throw new RemoteException(e.getMessage(),e);
+		}	
+		return result;
+	}
+	
+	
+	@GET
+	@Path("responderPQR")
+	@Produces(MediaType.TEXT_HTML)
+	public StringBuffer responderPQR(@QueryParam("solicitud")Long solicitud,
+			@QueryParam("encargado")String username,
+			@QueryParam("password")String pwd,
+			@QueryParam("respuesta")String respuesta)throws RemoteException{
+		Usuario userEncargado=null;
+		StringBuffer result=new StringBuffer();
+		try {
+			result.append("Se ha generado una respuesta a la solicitud Numero:");
+			result.append(String.valueOf(solicitud));
+			result.append("\nrespuesta:\n");
+			result.append(respuesta);			
+			pqrBl.responderPQR(solicitud, userEncargado, respuesta);
+			
+		} catch (MyDAOException e) {
+			throw new RemoteException(e.getMessage(),e);
+		}	
+		return result;
+	}
+	
+
 }

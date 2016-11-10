@@ -48,7 +48,7 @@ public SolicitudPQRWS getSolicitudById(@QueryParam("solicitud")Long solicitud)th
 @GET
 @Path("Delegar")
 @Produces(MediaType.APPLICATION_JSON)
-public SolicitudPQRWS delegarPQR(@QueryParam("solicitud")Long solicitud,@QueryParam("encargado")String username, 				@QueryParam("logedUser")String user, @QueryParam("password")String password)throws RemoteException{
+public SolicitudPQRWS delegarPQR(@QueryParam("solicitud")Long solicitud,@QueryParam("encargado")String username,@QueryParam("logedUser")String user, @QueryParam("password")String password)throws RemoteException{
 
 	SolicitudPQRWS result=new SolicitudPQRWS();
 	SolicitudPQR pqr=null;
