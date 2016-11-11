@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -16,15 +18,12 @@ import org.springframework.stereotype.Component;
 import co.pqrs.ing.web.db.SolicitudPQR;
 import co.pqrs.ing.web.db.Sucursal;
 import co.pqrs.ing.web.db.Usuario;
-import co.pqrs.ing.web.enums.EstadoPQR;
-import co.pqrs.ing.web.enums.Rol;
 import co.pqrs.ing.web.enums.TipoPQR;
 import co.pqrs.ing.web.exception.MyDAOException;
 import co.pqrs.ing.web.logic.SolicitudPQRBl;
 import co.pqrs.ing.web.logic.SucursalBl;
 import co.pqrs.ing.web.logic.UsuarioBl;
 import co.pqrs.ing.web.util.Utils;
-import co.pqrs.ing.web.ws.dto.SolicitudPQRWS;
 import co.pqrs.ing.web.ws.dto.SolicitudPQRWS;
 /**
  * @author Alejandro Serna - Email: alejandro.serna3@gmail.com
