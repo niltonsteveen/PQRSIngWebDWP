@@ -85,7 +85,7 @@ public class ServicioSucursal {
 	 * @return Retorna un String con el nombre de la sucursal creada
 	 * @throws RemoteException
 	 */
-	@PUT
+	@POST
 	@Path("createSucursal")
 	@Produces(MediaType.TEXT_HTML)
 	public String createSucursal(@QueryParam("sucursal")SucursalWS sucursal,
@@ -116,7 +116,7 @@ public class ServicioSucursal {
 	 * que fue actualizada
 	 * @throws RemoteException
 	 */
-	@POST
+	@PUT
 	@Path("updateSucursal")
 	@Produces(MediaType.TEXT_HTML)
 	public String updateSucursal(@QueryParam("sucursal")SucursalWS sucursal,
