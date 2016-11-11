@@ -116,7 +116,7 @@ public class ServicioUsuarios {
 	 * el nombre del usuario creado
 	 * @throws RemoteException
 	 */
-	@PUT
+	@POST
 	@Path("createUser")
 	@Produces(MediaType.TEXT_HTML)
 	public String createUser(@QueryParam("usuario")UsuariosWS user,@QueryParam("loged")String logedUser)throws RemoteException{
@@ -181,7 +181,7 @@ public class ServicioUsuarios {
 	 * @throws RemoteException
 	 * @throws ParseException
 	 */
-	@POST
+	@PUT
 	@Path("actualizar")
 	@Produces(MediaType.TEXT_HTML)
 	public String updateUser(@QueryParam("usuario")UsuariosWS user,@QueryParam("loged")String usernameLoged, 
