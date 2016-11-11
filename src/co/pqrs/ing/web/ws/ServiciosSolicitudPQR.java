@@ -79,7 +79,7 @@ public class ServiciosSolicitudPQR {
 	 * el identificador de la solicitud
 	 * @throws RemoteException
 	 */
-	@GET
+	@PUT
 	@Path("createPQR")
 	@Produces(MediaType.TEXT_HTML)
 	public String createPQR(@QueryParam("solicitud")SolicitudPQRWS pqr,@QueryParam("usuario")String userId,@QueryParam("password")String pwd)throws RemoteException{
@@ -115,7 +115,7 @@ public class ServiciosSolicitudPQR {
 	 * con su respectivo identificador 
 	 * @throws RemoteException
 	 */
-	@GET
+	@POST
 	@Path("cancelPQR")
 	@Produces(MediaType.TEXT_HTML)
 	public String cancelPQR(@QueryParam("solicitud")Long solicitudId,@QueryParam("usuario")String userId,@QueryParam("password")String pwd)throws RemoteException{
@@ -217,7 +217,7 @@ public class ServiciosSolicitudPQR {
 	 * @return Retorna una solicitud de PQR que fue delegada
 	 * @throws RemoteException
 	 */
-	@GET
+	@POST
 	@Path("Delegar")
 	@Produces(MediaType.APPLICATION_JSON)
 	public SolicitudPQRWS delegarPQR(@QueryParam("solicitud")Long solicitud,
@@ -262,7 +262,7 @@ public class ServiciosSolicitudPQR {
 	 * PQR fue respuesta 
 	 * @throws RemoteException
 	 */
-	@GET
+	@POST
 	@Path("responderPQR")
 	@Produces(MediaType.TEXT_HTML)
 	public StringBuffer responderPQR(@QueryParam("solicitud")Long solicitud,
