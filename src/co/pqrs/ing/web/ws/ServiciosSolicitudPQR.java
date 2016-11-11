@@ -26,7 +26,13 @@ import co.pqrs.ing.web.logic.UsuarioBl;
 import co.pqrs.ing.web.util.Utils;
 import co.pqrs.ing.web.ws.dto.SolicitudPQRWS;
 import co.pqrs.ing.web.ws.dto.SolicitudPQRWS;
-
+/**
+ * @author Alejandro Serna - Email: alejandro.serna3@gmail.com
+ * @author Nilton Velez - Email: nilton.velez@udea.edu.co
+ * @author Camilo Lopez - Email: lopcamilo@gmail.com
+ * @version 1.0.0
+ * Clase que implementa los metodos de la interfaz SolicitudPQRBI 
+ */
 @Component
 @Path("SolicitudPQR")
 public class ServiciosSolicitudPQR {
@@ -65,7 +71,15 @@ public class ServiciosSolicitudPQR {
 		this.pqrBl = pqrBl;
 	}
 	
-	@GET
+	/**
+	 * @param pqr
+	 * @param userId
+	 * @param pwd
+	 * @return Retorna un String con la creación de la PQR que contiene
+	 * el identificador de la solicitud
+	 * @throws RemoteException
+	 */
+	@POST
 	@Path("createPQR")
 	@Produces(MediaType.TEXT_HTML)
 	public String createPQR(@QueryParam("solicitud")SolicitudPQRWS pqr,@QueryParam("usuario")String userId,@QueryParam("password")String pwd)throws RemoteException{
@@ -93,7 +107,15 @@ public class ServiciosSolicitudPQR {
 		}
 	}
 	
-	@GET
+	/**
+	 * @param solicitudId
+	 * @param userId
+	 * @param pwd
+	 * @return Retorna un String con la cancelación de una solicitud de PQR
+	 * con su respectivo identificador 
+	 * @throws RemoteException
+	 */
+	@PUT
 	@Path("cancelPQR")
 	@Produces(MediaType.TEXT_HTML)
 	public String cancelPQR(@QueryParam("solicitud")Long solicitudId,@QueryParam("usuario")String userId,@QueryParam("password")String pwd)throws RemoteException{
@@ -114,6 +136,11 @@ public class ServiciosSolicitudPQR {
 		}
 	}
 	
+	/**
+	 * @param user
+	 * @return Retorna una lista de solicitudes de PQR
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("notificacionPQR")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -152,6 +179,11 @@ public class ServiciosSolicitudPQR {
 		return result;
 	}
 	
+	/**
+	 * @param solicitud
+	 * @return Retorna una solicitud especifica buscada por su identificador
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("GetById")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -177,8 +209,15 @@ public class ServiciosSolicitudPQR {
 		return result;
 	}
 	
-	
-	@GET
+	/**
+	 * @param solicitud
+	 * @param username
+	 * @param user
+	 * @param password
+	 * @return Retorna una solicitud de PQR que fue delegada
+	 * @throws RemoteException
+	 */
+	@PUT
 	@Path("Delegar")
 	@Produces(MediaType.APPLICATION_JSON)
 	public SolicitudPQRWS delegarPQR(@QueryParam("solicitud")Long solicitud,
@@ -214,8 +253,16 @@ public class ServiciosSolicitudPQR {
 		return result;
 	}
 	
-	
-	@GET
+	/**
+	 * @param solicitud
+	 * @param username
+	 * @param pwd
+	 * @param respuesta
+	 * @return Retorna un StringBuffer con un mensaje que indica que la 
+	 * PQR fue respuesta 
+	 * @throws RemoteException
+	 */
+	@PUT
 	@Path("responderPQR")
 	@Produces(MediaType.TEXT_HTML)
 	public StringBuffer responderPQR(@QueryParam("solicitud")Long solicitud,

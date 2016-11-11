@@ -20,9 +20,15 @@ import co.pqrs.ing.web.logic.SucursalBl;
 import co.pqrs.ing.web.logic.UsuarioBl;
 import co.pqrs.ing.web.util.Utils;
 import co.pqrs.ing.web.ws.dto.SucursalWS;
-
+/**
+ * @author Alejandro Serna - Email: alejandro.serna3@gmail.com
+ * @author Nilton Velez - Email: nilton.velez@udea.edu.co
+ * @author Camilo Lopez - Email: lopcamilo@gmail.com
+ * @version 1.0.0
+ * Clase que implementa los metodos de la interfaz SucursalBI 
+ */
 @Component
-@Path("Usuario")
+@Path("Sucursal")
 public class ServicioSucursal {
 
 	@Autowired
@@ -49,6 +55,10 @@ public class ServicioSucursal {
 		this.sucursalBl = sucursalBl;
 	}
 	
+	/**
+	 * @return Retorna una lista de sucursales
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("listar")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -70,8 +80,14 @@ public class ServicioSucursal {
 		return result;
 	}
 
-	
-	@GET
+	/**
+	 * @param sucursal
+	 * @param user
+	 * @param pwd
+	 * @return Retorna un String con el nombre de la sucursal creada
+	 * @throws RemoteException
+	 */
+	@POST
 	@Path("createSucursal")
 	@Produces(MediaType.TEXT_HTML)
 	public String createSucursal(@QueryParam("sucursal")SucursalWS sucursal,
@@ -94,7 +110,15 @@ public class ServicioSucursal {
 		}
 	}
 	
-	@GET
+	/**
+	 * @param sucursal
+	 * @param user
+	 * @param pwd
+	 * @return Retorna un String con el nombre de la sucursal 
+	 * que fue actualizada
+	 * @throws RemoteException
+	 */
+	@PUT
 	@Path("updateSucursal")
 	@Produces(MediaType.TEXT_HTML)
 	public String updateSucursal(@QueryParam("sucursal")SucursalWS sucursal,

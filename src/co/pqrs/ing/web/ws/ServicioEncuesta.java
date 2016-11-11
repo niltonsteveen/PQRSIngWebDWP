@@ -4,11 +4,15 @@ import java.rmi.RemoteException;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -94,15 +98,24 @@ public class ServicioEncuesta {
 	EncuestaSatisfaccionBI encuestaBl;
 	
 	
+	/**
+	 * @param plantilla
+	 * @param user
+	 * @param pass
+	 * @throws RemoteException
+	 * Crea una plantilla base
+	 */
 	
-	@GET
-	@Path("CrearPlantilla")
-	public void crearPlantilla(@QueryParam("plantilla")PlantillaEncuestaWS plantilla,@QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
+	@POST
+	@Path("crearPlantilla")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response crearPlantilla(@QueryParam("plantilla")PlantillaEncuestaWS plantilla,@QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
 		try {
 			Usuario loged = usuarioBl.validarUsuario(user, pass);
 			if(Utils.validarAdmin(loged)){
-				PlantillaEncuesta plantillaBd = Utilities.convertirPlantilla(plantilla);
+				PlantillaEncuesta plantillaBd = Utilities.convertirPlantilla(plantilla);	
 				plantillaBl.crearPlantillaEncuesta(plantillaBd);
+				return Response.status(201).entity("Plantilla creada exitosamente").build();
 			}else{
 				throw new RemoteException("Este usuario no tiene permitido modificar plantillas");
 			}
@@ -112,14 +125,23 @@ public class ServicioEncuesta {
 		}
 	}
 	
-	@GET
-	@Path("ModificarPlantilla")
-	public void ModificarPlantilla(@QueryParam("plantilla")PlantillaEncuestaWS plantilla,@QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
+	/**
+	 * @param plantilla
+	 * @param user
+	 * @param pass
+	 * @throws RemoteException
+	 * Modifica una plantilla
+	 */
+	@PUT
+	@Path("modificarPlantilla")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response ModificarPlantilla(@QueryParam("plantilla")PlantillaEncuestaWS plantilla,@QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
 		try {
 			Usuario loged = usuarioBl.validarUsuario(user, pass);
 			if(Utils.validarAdmin(loged)){
 				PlantillaEncuesta plantillaBd = Utilities.convertirPlantilla(plantilla);
 				plantillaBl.modificarPlantillaEncuesta(plantillaBd);
+				return Response.status(201).entity("Plantilla modificada exitosamente").build();
 			}else{
 				throw new RemoteException("Este usuario no tiene permitido modificar plantillas");
 			}
@@ -129,11 +151,17 @@ public class ServicioEncuesta {
 		}
 	}
 	
-	
+	/**
+	 * @param plantilla
+	 * @param user
+	 * @param pass
+	 * @return Se retorna una Lista plantillas para una Encuesta
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("listarPlantillas")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<PlantillaEncuestaWS> listarPlantillas(@QueryParam("plantilla")PlantillaEncuestaWS plantilla,@QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
+	public List<PlantillaEncuestaWS> listarPlantillas(@QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
 		try {
 			Usuario loged = usuarioBl.validarUsuario(user, pass);
 			if(Utils.validarAdmin(loged)){
@@ -154,18 +182,27 @@ public class ServicioEncuesta {
 		}
 	}
 	
-	
-	@GET
+	/**
+	 * 
+	 * @param pregunta
+	 * @param user
+	 * @param pass
+	 * @throws RemoteException
+	 * Guarda una pregunta en una plantilla para una Encuesta
+	 */
+	@POST
 	@Path("guardarPregunta")
-	public void guardarPregunta(@QueryParam("pregunta")PreguntaWS pregunta, @QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response guardarPregunta(@QueryParam("pregunta")PreguntaWS pregunta, @QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
 		try {
 			Usuario loged = usuarioBl.validarUsuario(user, pass);
 			if(Utils.validarAdmin(loged)){
 				if(pregunta!=null){
-					throw new MyDAOException("La plantilla no puede ser nula");
+					throw new MyDAOException("La pregunta no puede ser nula");
 				}
 				Pregunta preguntabd = Utilities.convertirpregunta(pregunta);
 				preguntaBl.agregarPregunta(preguntabd);
+				return Response.status(201).entity("Pregunta creada exitosamente").build();
 			}else{
 				throw new RemoteException("Este usuario no tiene permitido modificar preguntas");
 			}
@@ -175,9 +212,17 @@ public class ServicioEncuesta {
 		}
 	}
 	
-	@GET
+	/**
+	 * @param pregunta
+	 * @param user
+	 * @param pass
+	 * @throws RemoteException
+	 * Modifica una pregunta en una plantilla
+	 */
+	@PUT
 	@Path("modificarPregunta")
-	public void modificarPregunta(@QueryParam("pregunta")PreguntaWS pregunta, @QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response modificarPregunta(@QueryParam("pregunta")PreguntaWS pregunta, @QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
 		try {
 			Usuario loged = usuarioBl.validarUsuario(user, pass);
 			if(Utils.validarAdmin(loged)){
@@ -186,6 +231,7 @@ public class ServicioEncuesta {
 				}
 				Pregunta preguntabd = Utilities.convertirpregunta(pregunta);
 				preguntaBl.modificarPregunta(preguntabd);
+				return Response.status(201).entity("Plantilla creada exitosamente").build();
 			}else{
 				throw new RemoteException("Este usuario no tiene permitido modificar preguntas");
 			}
@@ -195,6 +241,13 @@ public class ServicioEncuesta {
 		}
 	}
 	
+	/**
+	 * @param codigoPlantilla
+	 * @param user
+	 * @param pass
+	 * @return Retorna una lista de preguntas para una plantilla
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("listarPreguntasPorPlantilla")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -220,7 +273,14 @@ public class ServicioEncuesta {
 		}
 	}
    
-	
+	/**
+	 * @param codigoEncuesta
+	 * @param user
+	 * @param pass
+	 * @return Retorna una encuesta generada a partir de una plantilla
+	 * con preguntas
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("presentarEncuestaCliente")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -251,9 +311,18 @@ public class ServicioEncuesta {
 		}
 	}
 	
-	@GET
+	/**
+	 * @param respuestas
+	 * @param codigoEncuesta
+	 * @param user
+	 * @param pass
+	 * @throws RemoteException
+	 * Guarda las respuestas a una encuesta
+	 */
+	@POST
 	@Path("responderEncuesta")
-	public void responderEncuesta(@QueryParam("codigo")List<RespuestaWS> respuestas, @QueryParam("codigoEncuesta")Long codigoEncuesta, @QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response responderEncuesta(@QueryParam("codigo")List<RespuestaWS> respuestas, @QueryParam("codigoEncuesta")Long codigoEncuesta, @QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
 		try {
 			Usuario loged = usuarioBl.validarUsuario(user, pass);
 			if(loged!=null){
@@ -266,6 +335,7 @@ public class ServicioEncuesta {
 							respuestasBd.add(resp);
 						}
 						respuestaBl.guardarRespuestas(respuestasBd);
+						return Response.status(201).entity("Respuestas guardadas exitosamente").build();
 					}else{
 						throw new MyDAOException("la encuesta que intenta responder no existe");
 					}				
@@ -281,8 +351,14 @@ public class ServicioEncuesta {
 		}
 	}
 	
-	
-	
+	/**
+	 * @param codigoEncuesta
+	 * @param user
+	 * @param pass
+	 * @return valida que el usuario logueado sea el administrador y luego
+	 * retorna una encuesta generada con sus respectivas respuestas
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("presentarEncuestaAdministrador")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -320,6 +396,15 @@ public class ServicioEncuesta {
 		}
 	}
 	
+	/**
+	 * @param solicitudId
+	 * @param user
+	 * @param pass
+	 * @return valida que el usuario logueado sea el administrador y luego
+	 * retorna una encuesta generada con sus respectivas respuestas 
+	 * por solicitud
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("presentarEncuestaAdministradorBySolicitud")
 	@Produces(MediaType.APPLICATION_JSON)

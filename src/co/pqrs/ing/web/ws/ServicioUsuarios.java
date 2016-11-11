@@ -13,7 +13,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,7 +23,13 @@ import co.pqrs.ing.web.exception.MyDAOException;
 import co.pqrs.ing.web.logic.UsuarioBl;
 import co.pqrs.ing.web.util.Utils;
 import co.pqrs.ing.web.ws.dto.UsuariosWS;
-
+/**
+ * @author Alejandro Serna - Email: alejandro.serna3@gmail.com
+ * @author Nilton Velez - Email: nilton.velez@udea.edu.co
+ * @author Camilo Lopez - Email: lopcamilo@gmail.com
+ * @version 1.0.0
+ * Clase que implementa los metodos de la interfaz UsuarioBI 
+ */
 @Component
 @Path("Usuario")
 public class ServicioUsuarios {
@@ -39,7 +44,10 @@ public class ServicioUsuarios {
 		this.usuarioBl = usuarioBl;
 	}
 
-	
+	/**
+	 * @return Retorna una lista de usuarios
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("all")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -68,6 +76,11 @@ public class ServicioUsuarios {
 		return result;
 	}
 	
+	/**
+	 * @param username
+	 * @return Retorna un usuario buscado por su identificación
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("userById")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -95,7 +108,14 @@ public class ServicioUsuarios {
 		return result;
 	}
 	
-	@GET
+	/**
+	 * @param user
+	 * @param logedUser
+	 * @return Retorna un string con un mensaje y 
+	 * el nombre del usuario creado
+	 * @throws RemoteException
+	 */
+	@POST
 	@Path("createUser")
 	@Produces(MediaType.TEXT_HTML)
 	public String createUser(@QueryParam("usuario")UsuariosWS user,@QueryParam("loged")String logedUser)throws RemoteException{
@@ -121,7 +141,12 @@ public class ServicioUsuarios {
 		}
 	}
 	
-	
+	/**
+	 * @param username
+	 * @param pwd
+	 * @return Retorna una validacion de un usuario
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("validar")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -146,7 +171,16 @@ public class ServicioUsuarios {
 		return result;
 	}
 	
-	@GET
+	/**
+	 * @param user
+	 * @param usernameLoged
+	 * @param pwd
+	 * @return Retona un String con un mensaje 
+	 * y la actualización de un usuario
+	 * @throws RemoteException
+	 * @throws ParseException
+	 */
+	@PUT
 	@Path("actualizar")
 	@Produces(MediaType.TEXT_HTML)
 	public String updateUser(@QueryParam("usuario")UsuariosWS user,@QueryParam("loged")String usernameLoged, 
