@@ -20,7 +20,13 @@ import co.pqrs.ing.web.logic.SucursalBl;
 import co.pqrs.ing.web.logic.UsuarioBl;
 import co.pqrs.ing.web.util.Utils;
 import co.pqrs.ing.web.ws.dto.SucursalWS;
-
+/**
+ * @author Alejandro Serna - Email: alejandro.serna3@gmail.com
+ * @author Nilton Velez - Email: nilton.velez@udea.edu.co
+ * @author Camilo Lopez - Email: lopcamilo@gmail.com
+ * @version 1.0.0
+ * Clase que implementa los metodos de la interfaz SucursalBI 
+ */
 @Component
 @Path("Usuario")
 public class ServicioSucursal {
@@ -31,8 +37,6 @@ public class ServicioSucursal {
 	@Autowired
 	UsuarioBl usuarioBl;
 	
-	
-
 	public UsuarioBl getUsuarioBl() {
 		return usuarioBl;
 	}
@@ -49,6 +53,11 @@ public class ServicioSucursal {
 		this.sucursalBl = sucursalBl;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("listar")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -70,7 +79,14 @@ public class ServicioSucursal {
 		return result;
 	}
 
-	
+	/**
+	 * 
+	 * @param sucursal
+	 * @param user
+	 * @param pwd
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("createSucursal")
 	@Produces(MediaType.TEXT_HTML)
@@ -94,6 +110,14 @@ public class ServicioSucursal {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param sucursal
+	 * @param user
+	 * @param pwd
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("updateSucursal")
 	@Produces(MediaType.TEXT_HTML)

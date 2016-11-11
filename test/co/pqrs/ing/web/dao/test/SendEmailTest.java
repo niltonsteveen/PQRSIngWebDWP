@@ -14,6 +14,9 @@ import co.pqrs.ing.web.util.SendEmail;
  */
 public class SendEmailTest {
 	
+	/**
+	 * Metodo usado para testear el envío de email
+	 */
 	//@Test
 	public void test() {
 		

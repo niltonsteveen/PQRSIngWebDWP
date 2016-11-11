@@ -94,7 +94,13 @@ public class ServicioEncuesta {
 	EncuestaSatisfaccionBI encuestaBl;
 	
 	
-	
+	/**
+	 * 
+	 * @param plantilla
+	 * @param user
+	 * @param pass
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("CrearPlantilla")
 	public void crearPlantilla(@QueryParam("plantilla")PlantillaEncuestaWS plantilla,@QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
@@ -112,6 +118,13 @@ public class ServicioEncuesta {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param plantilla
+	 * @param user
+	 * @param pass
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("ModificarPlantilla")
 	public void ModificarPlantilla(@QueryParam("plantilla")PlantillaEncuestaWS plantilla,@QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
@@ -129,7 +142,14 @@ public class ServicioEncuesta {
 		}
 	}
 	
-	
+	/**
+	 * 
+	 * @param plantilla
+	 * @param user
+	 * @param pass
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("listarPlantillas")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -154,7 +174,13 @@ public class ServicioEncuesta {
 		}
 	}
 	
-	
+	/**
+	 * 
+	 * @param pregunta
+	 * @param user
+	 * @param pass
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("guardarPregunta")
 	public void guardarPregunta(@QueryParam("pregunta")PreguntaWS pregunta, @QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
@@ -175,6 +201,13 @@ public class ServicioEncuesta {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param pregunta
+	 * @param user
+	 * @param pass
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("modificarPregunta")
 	public void modificarPregunta(@QueryParam("pregunta")PreguntaWS pregunta, @QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
@@ -195,6 +228,14 @@ public class ServicioEncuesta {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param codigoPlantilla
+	 * @param user
+	 * @param pass
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("listarPreguntasPorPlantilla")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -220,7 +261,14 @@ public class ServicioEncuesta {
 		}
 	}
    
-	
+	/**
+	 * 
+	 * @param codigoEncuesta
+	 * @param user
+	 * @param pass
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("presentarEncuestaCliente")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -251,6 +299,14 @@ public class ServicioEncuesta {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param respuestas
+	 * @param codigoEncuesta
+	 * @param user
+	 * @param pass
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("responderEncuesta")
 	public void responderEncuesta(@QueryParam("codigo")List<RespuestaWS> respuestas, @QueryParam("codigoEncuesta")Long codigoEncuesta, @QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
@@ -281,8 +337,14 @@ public class ServicioEncuesta {
 		}
 	}
 	
-	
-	
+	/**
+	 * 
+	 * @param codigoEncuesta
+	 * @param user
+	 * @param pass
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("presentarEncuestaAdministrador")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -320,6 +382,13 @@ public class ServicioEncuesta {
 		}
 	}
 	
+	/**
+	 * @param solicitudId
+	 * @param user
+	 * @param pass
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("presentarEncuestaAdministradorBySolicitud")
 	@Produces(MediaType.APPLICATION_JSON)

@@ -33,7 +33,9 @@ public class UsuarioBlTest {
 	UsuarioBl userBl;
 	
 	
-	
+	/**
+	 * metodo usado para testear la creación de usuarios
+	 */
 	//@Test
 	public void testCrearUsuario() {
 		Usuario usuarioTest;
@@ -58,6 +60,9 @@ public class UsuarioBlTest {
 
 	}
 	
+	/**
+	 * metodo usado para testear la Actualización de datos de un usuario
+	 */
 	//@Test
 	public void testActualizarUsuario() {
 		Usuario usr;
@@ -78,6 +83,9 @@ public class UsuarioBlTest {
 
 	}
 	
+	/**
+	 * método usado para testear la validación de un usuario
+	 */
 	//@Test
 	public void testValidarUsuario() {
 		

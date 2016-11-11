@@ -26,7 +26,13 @@ import co.pqrs.ing.web.logic.UsuarioBl;
 import co.pqrs.ing.web.util.Utils;
 import co.pqrs.ing.web.ws.dto.SolicitudPQRWS;
 import co.pqrs.ing.web.ws.dto.SolicitudPQRWS;
-
+/**
+ * @author Alejandro Serna - Email: alejandro.serna3@gmail.com
+ * @author Nilton Velez - Email: nilton.velez@udea.edu.co
+ * @author Camilo Lopez - Email: lopcamilo@gmail.com
+ * @version 1.0.0
+ * Clase que implementa los metodos de la interfaz SolicitudPQRBI 
+ */
 @Component
 @Path("SolicitudPQR")
 public class ServiciosSolicitudPQR {
@@ -65,6 +71,14 @@ public class ServiciosSolicitudPQR {
 		this.pqrBl = pqrBl;
 	}
 	
+	/**
+	 * 
+	 * @param pqr
+	 * @param userId
+	 * @param pwd
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("createPQR")
 	@Produces(MediaType.TEXT_HTML)
@@ -93,6 +107,13 @@ public class ServiciosSolicitudPQR {
 		}
 	}
 	
+	/**
+	 * @param solicitudId
+	 * @param userId
+	 * @param pwd
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("cancelPQR")
 	@Produces(MediaType.TEXT_HTML)
@@ -114,6 +135,12 @@ public class ServiciosSolicitudPQR {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("notificacionPQR")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -152,6 +179,12 @@ public class ServiciosSolicitudPQR {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * @param solicitud
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("GetById")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -177,7 +210,15 @@ public class ServiciosSolicitudPQR {
 		return result;
 	}
 	
-	
+	/**
+	 * 
+	 * @param solicitud
+	 * @param username
+	 * @param user
+	 * @param password
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("Delegar")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -214,7 +255,15 @@ public class ServiciosSolicitudPQR {
 		return result;
 	}
 	
-	
+	/**
+	 * 
+	 * @param solicitud
+	 * @param username
+	 * @param pwd
+	 * @param respuesta
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("responderPQR")
 	@Produces(MediaType.TEXT_HTML)

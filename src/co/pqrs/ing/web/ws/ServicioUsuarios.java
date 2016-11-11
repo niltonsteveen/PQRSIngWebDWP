@@ -24,7 +24,13 @@ import co.pqrs.ing.web.exception.MyDAOException;
 import co.pqrs.ing.web.logic.UsuarioBl;
 import co.pqrs.ing.web.util.Utils;
 import co.pqrs.ing.web.ws.dto.UsuariosWS;
-
+/**
+ * @author Alejandro Serna - Email: alejandro.serna3@gmail.com
+ * @author Nilton Velez - Email: nilton.velez@udea.edu.co
+ * @author Camilo Lopez - Email: lopcamilo@gmail.com
+ * @version 1.0.0
+ * Clase que implementa los metodos de la interfaz UsuarioBI 
+ */
 @Component
 @Path("Usuario")
 public class ServicioUsuarios {
@@ -39,7 +45,11 @@ public class ServicioUsuarios {
 		this.usuarioBl = usuarioBl;
 	}
 
-	
+	/**
+	 * 
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("all")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -68,6 +78,12 @@ public class ServicioUsuarios {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * @param username
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("userById")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -95,6 +111,13 @@ public class ServicioUsuarios {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * @param user
+	 * @param logedUser
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("createUser")
 	@Produces(MediaType.TEXT_HTML)
@@ -121,7 +144,13 @@ public class ServicioUsuarios {
 		}
 	}
 	
-	
+	/**
+	 * 
+	 * @param username
+	 * @param pwd
+	 * @return
+	 * @throws RemoteException
+	 */
 	@GET
 	@Path("validar")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -146,6 +175,15 @@ public class ServicioUsuarios {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * @param user
+	 * @param usernameLoged
+	 * @param pwd
+	 * @return
+	 * @throws RemoteException
+	 * @throws ParseException
+	 */
 	@GET
 	@Path("actualizar")
 	@Produces(MediaType.TEXT_HTML)

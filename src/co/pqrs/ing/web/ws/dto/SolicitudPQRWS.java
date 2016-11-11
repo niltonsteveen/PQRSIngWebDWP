@@ -23,6 +23,10 @@ public class SolicitudPQRWS {
 	private String descripcion;
 	private String respuesta;
 	
+	/**	
+	 * @param jsonRepresentation
+	 * @return
+	 */
 	public static SolicitudPQRWS fromString(String jsonRepresentation){
 		ObjectMapper mapper=new ObjectMapper();
 		mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES,true);
@@ -38,6 +42,22 @@ public class SolicitudPQRWS {
 	public SolicitudPQRWS() {
 		super();
 	}
+	
+	/**
+	 * @param identificador
+	 * @param usuarioId
+	 * @param fechaCreacion
+	 * @param fechaAtencion
+	 * @param fechaResolucion
+	 * @param estado
+	 * @param usuarioDelegadoId
+	 * @param usuarioResuelveId
+	 * @param sucursalId
+	 * @param tipo
+	 * @param descripcion
+	 * @param respuesta
+	 * Método constructor de la clase SolicitudPQRWS
+	 */
 	public SolicitudPQRWS(Long identificador, String usuarioId, Date fechaCreacion, Date fechaAtencion,
 			Date fechaResolucion, String estado, String usuarioDelegadoId, String usuarioResuelveId, Long sucursalId,
 			String tipo, String descripcion, String respuesta) {
@@ -127,6 +147,5 @@ public class SolicitudPQRWS {
 	public void setRespuesta(String respuesta) {
 		this.respuesta = respuesta;
 	}
-	
-	
+		
 }

@@ -16,16 +16,25 @@ public class SucursalWS {
 	private String descripcion;
 	
 	public SucursalWS() {
-		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * @param codigo
+	 * @param nombre
+	 * @param descripcion
+	 * Método constructor de la clase SucursalWS
+	 */
 	public SucursalWS(Long codigo, String nombre, String descripcion) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 	}
-
+	
+	/**
+	 * @param jsonRepresentation
+	 * @return
+	 */
 	public static SucursalWS fromString(String jsonRepresentation){
 		ObjectMapper mapper=new ObjectMapper();
 		mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES,true);
@@ -61,7 +70,5 @@ public class SucursalWS {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
-	
 
 }

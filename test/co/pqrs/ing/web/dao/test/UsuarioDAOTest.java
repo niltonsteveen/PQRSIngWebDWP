@@ -21,6 +21,7 @@ import co.pqrs.ing.web.exception.MyDAOException;
  * @author Alejandro Serna - Email: alejandro.serna3@gmail.com
  * @author Nilton Velez - Email: nilton.velez@udea.edu.co
  * @author Camilo Lopez - Email: lopcamilo@gmail.com 
+ * CRUD para testear los metodos de Usuario
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:config.xml"})
@@ -28,6 +29,10 @@ public class UsuarioDAOTest {
 	@Autowired
 	UsuarioDAO daoUser;
 	
+	/**
+	 * metodo usado para testear la creacion de una lista de usuarios
+	 * @throws MyDAOException
+	 */
 	//@Test
 	public void testToList() throws MyDAOException{
 		List <Usuario> usuarios;
@@ -41,6 +46,11 @@ public class UsuarioDAOTest {
 		}
 		
 	}
+	
+	/**
+	 * metodo usado para testear la obtención de un Usuario
+	 * @throws MyDAOException
+	 */
 	//@Test
 	public void testToGet() throws MyDAOException{
 		Usuario usuario;
@@ -54,6 +64,11 @@ public class UsuarioDAOTest {
 		}
 		
 	}
+	
+	/**
+	 * metodo usado para testear el guardado de los Usuarios
+	 * @throws MyDAOException
+	 */
 	//@Test
 	public void testToSave() throws MyDAOException{
 		Usuario usr;
@@ -88,7 +103,11 @@ public class UsuarioDAOTest {
 		}
 		
 	}
-
+	
+	/**
+	 * metodo usado para testear la actualizacion de usuarios
+	 * @throws MyDAOException
+	 */
 	//@Test
 	public void testToUpdate() throws MyDAOException{
 		List <Usuario> usuarios;
@@ -113,6 +132,10 @@ public class UsuarioDAOTest {
 		
 	}
 	
+	/**
+	 * metodo usado para testear el borrado de usuarios
+	 * @throws MyDAOException
+	 */
 	//@Test
 	public void testToDelete() throws MyDAOException{
 		List <Usuario> usuarios;

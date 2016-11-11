@@ -17,6 +17,10 @@ public class PlantillaEncuestaWS {
 	private String nombre;
 	private Date fechaCreacion;
 	
+	/**
+	 * @param jsonRepresentation
+	 * @return
+	 */
 	public static PlantillaEncuestaWS fromString(String jsonRepresentation){
 		ObjectMapper mapper=new ObjectMapper();
 		mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES,true);
@@ -33,11 +37,15 @@ public class PlantillaEncuestaWS {
 	
 	public PlantillaEncuestaWS() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 
-
+	/**
+	 * @param codigo
+	 * @param tipo
+	 * @param nombre
+	 * @param fechaCreacion
+	 */
 	public PlantillaEncuestaWS(Long codigo, String tipo, String nombre, Date fechaCreacion) {
 		super();
 		this.codigo = codigo;
@@ -71,6 +79,5 @@ public class PlantillaEncuestaWS {
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
-	
-	
+		
 }
