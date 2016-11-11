@@ -22,7 +22,8 @@ public class EncuestaWS {
 	
 	/**
 	 * @param jsonRepresentation
-	 * @return
+	 * @return Retorna un objeto de tipo EncuestaWS a partir de una
+	 * cadena en formato json capturada por url
 	 */
 	public static EncuestaWS fromString(String jsonRepresentation){
 		ObjectMapper mapper=new ObjectMapper();
@@ -61,7 +62,9 @@ public class EncuestaWS {
 		this.respuestas = respuestas;
 	}
 
-
+	/**
+	 * Getters and Setters
+	 */
 	public Long getCodigo() {
 		return codigo;
 	}

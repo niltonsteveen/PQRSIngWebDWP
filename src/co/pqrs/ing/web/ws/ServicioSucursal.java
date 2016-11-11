@@ -54,8 +54,7 @@ public class ServicioSucursal {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return Retorna una lista de sucursales
 	 * @throws RemoteException
 	 */
 	@GET
@@ -80,11 +79,10 @@ public class ServicioSucursal {
 	}
 
 	/**
-	 * 
 	 * @param sucursal
 	 * @param user
 	 * @param pwd
-	 * @return
+	 * @return Retorna un String con el nombre de la sucursal creada
 	 * @throws RemoteException
 	 */
 	@GET
@@ -111,11 +109,11 @@ public class ServicioSucursal {
 	}
 	
 	/**
-	 * 
 	 * @param sucursal
 	 * @param user
 	 * @param pwd
-	 * @return
+	 * @return Retorna un String con el nombre de la sucursal 
+	 * que fue actualizada
 	 * @throws RemoteException
 	 */
 	@GET

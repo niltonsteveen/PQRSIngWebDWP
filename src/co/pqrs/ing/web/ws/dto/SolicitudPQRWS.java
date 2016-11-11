@@ -25,7 +25,8 @@ public class SolicitudPQRWS {
 	
 	/**	
 	 * @param jsonRepresentation
-	 * @return
+	 * @return Retorna un objeto de tipo SolicitudPQRWS a partir de una
+	 * cadena en formato json capturada por url
 	 */
 	public static SolicitudPQRWS fromString(String jsonRepresentation){
 		ObjectMapper mapper=new ObjectMapper();
@@ -75,6 +76,10 @@ public class SolicitudPQRWS {
 		this.descripcion = descripcion;
 		this.respuesta = respuesta;
 	}
+	
+	/**
+	 * Getters and Setters
+	 */
 	public Long getIdentificador() {
 		return identificador;
 	}

@@ -13,9 +13,20 @@ import co.pqrs.ing.web.ws.dto.PlantillaEncuestaWS;
 import co.pqrs.ing.web.ws.dto.PreguntaWS;
 import co.pqrs.ing.web.ws.dto.RespuestaWS;
 import co.pqrs.ing.web.ws.dto.SolicitudPQRWS;
-
+/**
+ * 
+ * @author Alejandro Serna - Email: jalejandro.serna@udea.edu.co
+ * Clase utlizada para poner métodos útiles en común para todo 
+ * el proyecto, para hacer conversiones entre objetos   
+ */
 public class Utilities {
-
+	
+	/**
+	 * @param plantilla
+	 * @return Retorna un objeto de tipo PlantillaEncuesta a partir
+	 * de un objeto de tipo PlantillaEncuestaWS
+	 * @throws MyDAOException
+	 */
 	public static PlantillaEncuesta convertirPlantilla(PlantillaEncuestaWS plantilla) throws MyDAOException{	
 		if(plantilla==null){
 			throw new MyDAOException("La plantilla no puede ser nula");
@@ -29,6 +40,12 @@ public class Utilities {
 		return plant;	
 	}
 	
+	/**
+	 * @param plantilla
+	 * @return Retorna un objeto de tipo PlantillaEncuestaWS a partir
+	 * de un objeto de tipo PlantillaEncuesta
+	 * @throws MyDAOException
+	 */
 	public static PlantillaEncuestaWS convertirPlantilla(PlantillaEncuesta plantilla) throws MyDAOException{	
 		if(plantilla==null){
 			throw new MyDAOException("La plantilla no puede ser nula");
@@ -41,7 +58,12 @@ public class Utilities {
 		return plant;	
 	}
 	
-
+	/**estudiantelis
+	 * @param pregunta
+	 * @return Retorna un objeto de tipo Pregunta a partir
+	 * de un objeto de tipo PreguntaWS
+	 * @throws MyDAOException
+	 */
 	public static Pregunta convertirpregunta(PreguntaWS pregunta) throws MyDAOException{	
 		if(pregunta==null){
 			throw new MyDAOException("La pregunta no puede ser nula");
@@ -57,6 +79,12 @@ public class Utilities {
 		return preg;	
 	}
 	
+	/**
+	 * @param pregunta
+	 * @return Retorna un objeto de tipo PreguntaWS a partir
+	 * de un objeto de tipo Pregunta
+	 * @throws MyDAOException
+	 */
 	public static PreguntaWS convertirpregunta(Pregunta pregunta) throws MyDAOException{	
 		if(pregunta==null){
 			throw new MyDAOException("La pregunta no puede ser nula");
@@ -72,7 +100,12 @@ public class Utilities {
 		return preg;	
 	}
 	
-	
+	/**
+	 * @param encuesta
+	 * @return Retorna un objeto de tipo EncuestaWS a partir
+	 * de un objeto de tipo EncuestaSatisfaccion
+	 * @throws MyDAOException
+	 */
 	public static EncuestaWS convertirEncuesta(EncuestaSatisfaccion encuesta) throws MyDAOException{	
 		if(encuesta==null){
 			throw new MyDAOException("La pregunta no puede ser nula");
@@ -88,6 +121,13 @@ public class Utilities {
 		return encuestaWs;	
 	}
 	
+	/**
+	 * @param respuesta
+	 * @param encuestaId
+	 * @return Retorna un objeto de tipo Respuesta a partir
+	 * de un objeto de tipo RespuestaWS
+	 * @throws MyDAOException
+	 */
 	public static Respuesta convertirRespuesta(RespuestaWS respuesta, Long encuestaId) throws MyDAOException{
 		if(respuesta==null){
 			throw new MyDAOException("La respuesta no puede ser nula");
@@ -105,6 +145,12 @@ public class Utilities {
 		
 	}
 	
+	/**
+	 * @param respuesta
+	 * @return Retorna un objeto de tipo RespuestaWS a partir
+	 * de un objeto de tipo Respuesta
+	 * @throws MyDAOException
+	 */
 	public static RespuestaWS convertirRespuesta(Respuesta respuesta) throws MyDAOException{
 		if(respuesta==null){
 			throw new MyDAOException("La respuesta no puede ser nula");
@@ -118,7 +164,12 @@ public class Utilities {
 		
 	}
 	
-	
+	/**
+	 * @param tipo
+	 * @return Retorna un objeto de tipo TipoPQR a partir
+	 * de un objeto de tipo String
+	 * @throws MyDAOException
+	 */
 	public static TipoPQR crearTipoPQR(String tipo) throws MyDAOException{
 		if(tipo==null){
 			throw new MyDAOException("El tipo no puede ser nulo");

@@ -33,7 +33,8 @@ public class SucursalWS {
 	
 	/**
 	 * @param jsonRepresentation
-	 * @return
+	 * @return Retorna un objeto de tipo SucursalWS a partir de una
+	 * cadena en formato json capturada por url
 	 */
 	public static SucursalWS fromString(String jsonRepresentation){
 		ObjectMapper mapper=new ObjectMapper();
@@ -47,26 +48,24 @@ public class SucursalWS {
 		return sucursal;
 	}
 	
+	/**
+	 * Getters and Setters
+	 */
 	public Long getCodigo() {
 		return codigo;
 	}
-
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 	public String getDescripcion() {
 		return descripcion;
 	}
-
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}

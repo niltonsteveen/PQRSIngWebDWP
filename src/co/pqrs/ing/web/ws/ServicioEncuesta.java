@@ -95,11 +95,11 @@ public class ServicioEncuesta {
 	
 	
 	/**
-	 * 
 	 * @param plantilla
 	 * @param user
 	 * @param pass
 	 * @throws RemoteException
+	 * Crea una plantilla base
 	 */
 	@GET
 	@Path("CrearPlantilla")
@@ -119,11 +119,11 @@ public class ServicioEncuesta {
 	}
 	
 	/**
-	 * 
 	 * @param plantilla
 	 * @param user
 	 * @param pass
 	 * @throws RemoteException
+	 * Modifica una plantilla
 	 */
 	@GET
 	@Path("ModificarPlantilla")
@@ -143,11 +143,10 @@ public class ServicioEncuesta {
 	}
 	
 	/**
-	 * 
 	 * @param plantilla
 	 * @param user
 	 * @param pass
-	 * @return
+	 * @return Se retorna una Lista plantillas para una Encuesta
 	 * @throws RemoteException
 	 */
 	@GET
@@ -180,6 +179,7 @@ public class ServicioEncuesta {
 	 * @param user
 	 * @param pass
 	 * @throws RemoteException
+	 * Guarda una pregunta en una plantilla para una Encuesta
 	 */
 	@GET
 	@Path("guardarPregunta")
@@ -202,11 +202,11 @@ public class ServicioEncuesta {
 	}
 	
 	/**
-	 * 
 	 * @param pregunta
 	 * @param user
 	 * @param pass
 	 * @throws RemoteException
+	 * Modifica una pregunta en una plantilla
 	 */
 	@GET
 	@Path("modificarPregunta")
@@ -229,11 +229,10 @@ public class ServicioEncuesta {
 	}
 	
 	/**
-	 * 
 	 * @param codigoPlantilla
 	 * @param user
 	 * @param pass
-	 * @return
+	 * @return Retorna una lista de preguntas para una plantilla
 	 * @throws RemoteException
 	 */
 	@GET
@@ -262,11 +261,11 @@ public class ServicioEncuesta {
 	}
    
 	/**
-	 * 
 	 * @param codigoEncuesta
 	 * @param user
 	 * @param pass
-	 * @return
+	 * @return Retorna una encuesta generada a partir de una plantilla
+	 * con preguntas
 	 * @throws RemoteException
 	 */
 	@GET
@@ -300,12 +299,12 @@ public class ServicioEncuesta {
 	}
 	
 	/**
-	 * 
 	 * @param respuestas
 	 * @param codigoEncuesta
 	 * @param user
 	 * @param pass
 	 * @throws RemoteException
+	 * Guarda las respuestas a una encuesta
 	 */
 	@GET
 	@Path("responderEncuesta")
@@ -338,11 +337,11 @@ public class ServicioEncuesta {
 	}
 	
 	/**
-	 * 
 	 * @param codigoEncuesta
 	 * @param user
 	 * @param pass
-	 * @return
+	 * @return valida que el usuario logueado sea el administrador y luego
+	 * retorna una encuesta generada con sus respectivas respuestas
 	 * @throws RemoteException
 	 */
 	@GET
@@ -386,7 +385,9 @@ public class ServicioEncuesta {
 	 * @param solicitudId
 	 * @param user
 	 * @param pass
-	 * @return
+	 * @return valida que el usuario logueado sea el administrador y luego
+	 * retorna una encuesta generada con sus respectivas respuestas 
+	 * por solicitud
 	 * @throws RemoteException
 	 */
 	@GET

@@ -72,11 +72,11 @@ public class ServiciosSolicitudPQR {
 	}
 	
 	/**
-	 * 
 	 * @param pqr
 	 * @param userId
 	 * @param pwd
-	 * @return
+	 * @return Retorna un String con la creación de la PQR que contiene
+	 * el identificador de la solicitud
 	 * @throws RemoteException
 	 */
 	@GET
@@ -111,7 +111,8 @@ public class ServiciosSolicitudPQR {
 	 * @param solicitudId
 	 * @param userId
 	 * @param pwd
-	 * @return
+	 * @return Retorna un String con la cancelación de una solicitud de PQR
+	 * con su respectivo identificador 
 	 * @throws RemoteException
 	 */
 	@GET
@@ -136,9 +137,8 @@ public class ServiciosSolicitudPQR {
 	}
 	
 	/**
-	 * 
 	 * @param user
-	 * @return
+	 * @return Retorna una lista de solicitudes de PQR
 	 * @throws RemoteException
 	 */
 	@GET
@@ -180,9 +180,8 @@ public class ServiciosSolicitudPQR {
 	}
 	
 	/**
-	 * 
 	 * @param solicitud
-	 * @return
+	 * @return Retorna una solicitud especifica buscada por su identificador
 	 * @throws RemoteException
 	 */
 	@GET
@@ -211,12 +210,11 @@ public class ServiciosSolicitudPQR {
 	}
 	
 	/**
-	 * 
 	 * @param solicitud
 	 * @param username
 	 * @param user
 	 * @param password
-	 * @return
+	 * @return Retorna una solicitud de PQR que fue delegada
 	 * @throws RemoteException
 	 */
 	@GET
@@ -256,12 +254,12 @@ public class ServiciosSolicitudPQR {
 	}
 	
 	/**
-	 * 
 	 * @param solicitud
 	 * @param username
 	 * @param pwd
 	 * @param respuesta
-	 * @return
+	 * @return Retorna un StringBuffer con un mensaje que indica que la 
+	 * PQR fue respuesta 
 	 * @throws RemoteException
 	 */
 	@GET

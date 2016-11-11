@@ -13,6 +13,8 @@ import co.pqrs.ing.web.exception.MyDAOException;
  * @author Alejandro Serna - Email: alejandro.serna3@gmail.com
  * @author Nilton Velez - Email: nilton.velez@udea.edu.co
  * @author Camilo Lopez - Email: lopcamilo@gmail.com 
+ * Clase utlizada para poner métodos útiles en común para todo 
+ * el proyecto
  */
 public class Utils {
 	

@@ -11,7 +11,6 @@ import org.codehaus.jackson.map.ObjectMapper;
 @XmlRootElement
 public class PlantillaEncuestaWS {
 
-
 	private Long codigo;
 	private String tipo;
 	private String nombre;
@@ -19,7 +18,8 @@ public class PlantillaEncuestaWS {
 	
 	/**
 	 * @param jsonRepresentation
-	 * @return
+	 * @return Retorna un objeto de tipo PlantillaEncuestaWS a partir de una
+	 * cadena en formato json capturada por url
 	 */
 	public static PlantillaEncuestaWS fromString(String jsonRepresentation){
 		ObjectMapper mapper=new ObjectMapper();
@@ -39,12 +39,12 @@ public class PlantillaEncuestaWS {
 		super();
 	}
 
-
 	/**
 	 * @param codigo
 	 * @param tipo
 	 * @param nombre
 	 * @param fechaCreacion
+	 * Método constructor de la clase PlantillaEncuestaWS
 	 */
 	public PlantillaEncuestaWS(Long codigo, String tipo, String nombre, Date fechaCreacion) {
 		super();
@@ -54,7 +54,9 @@ public class PlantillaEncuestaWS {
 		this.fechaCreacion = fechaCreacion;
 	}
 
-
+	/**
+	 * Getters and Setters
+	 */
 	public Long getCodigo() {
 		return codigo;
 	}

@@ -20,7 +20,8 @@ public class RespuestaWS {
 	
 	/**
 	 * @param jsonRepresentation
-	 * @return
+	 * @return Retorna un objeto de tipo RespuestaWS a partir de una
+	 * cadena en formato json capturada por url
 	 */
 	public static RespuestaWS fromString(String jsonRepresentation){
 		ObjectMapper mapper=new ObjectMapper();
@@ -54,34 +55,30 @@ public class RespuestaWS {
 		this.respuesta = respuesta;
 	}
 
+	/**
+	 * Getters and Setters
+	 */
 	public Long getCodigo() {
 		return codigo;
 	}
-
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-
 	public PreguntaWS getPregunta() {
 		return pregunta;
 	}
-
 	public void setPregunta(PreguntaWS pregunta) {
 		this.pregunta = pregunta;
 	}
-
 	public EncuestaWS getEncuestaId() {
 		return encuestaId;
 	}
-
 	public void setEncuestaId(EncuestaWS encuestaId) {
 		this.encuestaId = encuestaId;
 	}
-
 	public String getRespuesta() {
 		return respuesta;
 	}
-
 	public void setRespuesta(String respuesta) {
 		this.respuesta = respuesta;
 	}

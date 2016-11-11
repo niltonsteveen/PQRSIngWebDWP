@@ -35,7 +35,8 @@ public class UsuariosWS {
 	
 	/**
 	 * @param jsonRepresentation
-	 * @return
+	 * @return Retorna un objeto de tipo UsuarioWS a partir de una
+	 * cadena en formato json capturada por url
 	 */
 	public static UsuariosWS fromString(String jsonRepresentation){
 		ObjectMapper mapper=new ObjectMapper();
@@ -67,7 +68,7 @@ public class UsuariosWS {
 	 * @param fechaCreacion
 	 * @param habilitado
 	 * @throws MyDAOException
-	 * Método constructor con atributos 
+	 * Método constructor de la clase UsuarioWS 
 	 */
 	public UsuariosWS(String username, String apellidos, String direccion, String correo, String nombres,
 			String password, String token, String rol, Date fechaCreacion, boolean habilitado) throws MyDAOException {

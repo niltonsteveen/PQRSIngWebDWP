@@ -46,8 +46,7 @@ public class ServicioUsuarios {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * @return Retorna una lista de usuarios
 	 * @throws RemoteException
 	 */
 	@GET
@@ -79,9 +78,8 @@ public class ServicioUsuarios {
 	}
 	
 	/**
-	 * 
 	 * @param username
-	 * @return
+	 * @return Retorna un usuario buscado por su identificación
 	 * @throws RemoteException
 	 */
 	@GET
@@ -112,10 +110,10 @@ public class ServicioUsuarios {
 	}
 	
 	/**
-	 * 
 	 * @param user
 	 * @param logedUser
-	 * @return
+	 * @return Retorna un string con un mensaje y 
+	 * el nombre del usuario creado
 	 * @throws RemoteException
 	 */
 	@GET
@@ -145,10 +143,9 @@ public class ServicioUsuarios {
 	}
 	
 	/**
-	 * 
 	 * @param username
 	 * @param pwd
-	 * @return
+	 * @return Retorna una validacion de un usuario
 	 * @throws RemoteException
 	 */
 	@GET
@@ -176,11 +173,11 @@ public class ServicioUsuarios {
 	}
 	
 	/**
-	 * 
 	 * @param user
 	 * @param usernameLoged
 	 * @param pwd
-	 * @return
+	 * @return Retona un String con un mensaje 
+	 * y la actualización de un usuario
 	 * @throws RemoteException
 	 * @throws ParseException
 	 */

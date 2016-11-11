@@ -25,7 +25,6 @@ public class SendEmailTest {
 			SendEmail.sendMail("hcamilo.lopez@udea.edu.co", "Prueba", "Hello World!!");
 			assertTrue(true);
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			fail("excepcion");
 		}
 	}

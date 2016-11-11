@@ -20,7 +20,8 @@ public class PreguntaWS {
 	
 	/**
 	 * @param jsonRepresentation
-	 * @return
+	 * @return Retorna un objeto de tipo PreguntaWS a partir de una
+	 * cadena en formato json capturada por url
 	 */
 	public static PreguntaWS fromString(String jsonRepresentation){
 		ObjectMapper mapper=new ObjectMapper();
@@ -45,6 +46,7 @@ public class PreguntaWS {
 	 * @param pregunta
 	 * @param obligatoria
 	 * @param habilitada
+	 * Método constructor de la clase PreguntaWS
 	 */
 	public PreguntaWS(Long codigo, PlantillaEncuestaWS plantilla, String pregunta, Boolean obligatoria,
 			Boolean habilitada) {
@@ -56,7 +58,9 @@ public class PreguntaWS {
 		this.habilitada = habilitada;
 	}
 
-
+	/**
+	 * Getters and Setters
+	 */
 	public Long getCodigo() {
 		return codigo;
 	}

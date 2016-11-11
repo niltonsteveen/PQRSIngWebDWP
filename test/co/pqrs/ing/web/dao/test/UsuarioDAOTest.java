@@ -30,7 +30,7 @@ public class UsuarioDAOTest {
 	UsuarioDAO daoUser;
 	
 	/**
-	 * metodo usado para testear la creacion de una lista de usuarios
+	 * método usado para testear la creacion de una lista de usuarios
 	 * @throws MyDAOException
 	 */
 	//@Test
@@ -48,7 +48,7 @@ public class UsuarioDAOTest {
 	}
 	
 	/**
-	 * metodo usado para testear la obtención de un Usuario
+	 * método usado para testear la obtención de un Usuario
 	 * @throws MyDAOException
 	 */
 	//@Test
@@ -58,7 +58,6 @@ public class UsuarioDAOTest {
 			usuario=daoUser.toGet("niltonsteveen");
 			assertTrue(usuario!=null);
 		} catch (HibernateException e) {
-			// TODO: handle exception
 			fail("Not yet implemented");
 			throw new MyDAOException(e);
 		}
@@ -66,7 +65,7 @@ public class UsuarioDAOTest {
 	}
 	
 	/**
-	 * metodo usado para testear el guardado de los Usuarios
+	 * método usado para testear el guardado de los Usuarios
 	 * @throws MyDAOException
 	 */
 	//@Test
@@ -97,7 +96,6 @@ public class UsuarioDAOTest {
 			}
 			assertTrue(valida);
 		} catch (HibernateException e) {
-			// TODO: handle exception
 			fail("Not yet implemented");
 			throw new MyDAOException(e);
 		}
@@ -105,7 +103,7 @@ public class UsuarioDAOTest {
 	}
 	
 	/**
-	 * metodo usado para testear la actualizacion de usuarios
+	 * método usado para testear la actualizacion de usuarios
 	 * @throws MyDAOException
 	 */
 	//@Test
