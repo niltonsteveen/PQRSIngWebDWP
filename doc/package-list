@@ -1,0 +1,11 @@
+co.pqrs.ing.web.dao
+co.pqrs.ing.web.dao.impl
+co.pqrs.ing.web.dao.test
+co.pqrs.ing.web.db
+co.pqrs.ing.web.enums
+co.pqrs.ing.web.exception
+co.pqrs.ing.web.logic
+co.pqrs.ing.web.test
+co.pqrs.ing.web.util
+co.pqrs.ing.web.ws
+co.pqrs.ing.web.ws.dto

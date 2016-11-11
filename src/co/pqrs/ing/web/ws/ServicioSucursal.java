@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -89,7 +90,7 @@ public class ServicioSucursal {
 	 */
 	@POST
 	@Path("createSucursal")
-	@Produces(MediaType.TEXT_HTML)
+	@Consumes(MediaType.TEXT_HTML)
 	public String createSucursal(@QueryParam("sucursal")SucursalWS sucursal,
 			@QueryParam("usuario")String user,@QueryParam("password")String pwd)throws RemoteException{
 		Sucursal result=new Sucursal();
@@ -120,7 +121,7 @@ public class ServicioSucursal {
 	 */
 	@PUT
 	@Path("updateSucursal")
-	@Produces(MediaType.TEXT_HTML)
+	@Consumes(MediaType.TEXT_HTML)
 	public String updateSucursal(@QueryParam("sucursal")SucursalWS sucursal,
 			@QueryParam("usuario")String user,@QueryParam("password")String pwd)throws RemoteException{
 		Sucursal result=new Sucursal();

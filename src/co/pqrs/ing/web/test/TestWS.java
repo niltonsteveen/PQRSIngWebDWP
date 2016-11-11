@@ -10,6 +10,23 @@ import com.sun.jersey.api.client.WebResource;
 
 public class TestWS {
 
+	@Test
+		public void testPostCrearUsuario() {
+
+			Client client = Client.create();
+			
+			WebResource webResource = client.resource("http://localhost:8081/PQRSIngWebDWP/rest/Usuario/createUser").queryParam("usuario", "{\"username\":\"veleznilton\",\"apellidos\":\"pruebas\",\"direccion\":\"cl 20127\",\"correo\":\"velez2@udea.edu.co\",\"nombres\":\"me llamo asi\",\"password\":\"alguna\",\"rol\":\"CLIENTE\",\"habilitado\":\"true\"}").queryParam("loged", "bryan");
+			//String input="&user=camilo&pass=12345";
+			ClientResponse response= webResource.type("text/html").post(ClientResponse.class);
+			if(response.getStatus()== 201){
+				System.out.println(response.getStatus());
+				assertTrue(true);
+			}
+		
+			System.out.println(response.getEntity(String.class));
+			
+		}
+	
 	//@Test
 	public void testPost() {
 
@@ -45,7 +62,7 @@ public class TestWS {
 	}
 	
 	
-	 	@Test
+	 	//@Test
 		public void testPut() {
 
 			Client client = Client.create();

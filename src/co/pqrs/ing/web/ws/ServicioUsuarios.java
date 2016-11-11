@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -116,7 +117,7 @@ public class ServicioUsuarios {
 	 */
 	@POST
 	@Path("createUser")
-	@Produces(MediaType.TEXT_HTML)
+	@Consumes(MediaType.TEXT_HTML)
 	public String createUser(@QueryParam("usuario")UsuariosWS user,@QueryParam("loged")String logedUser)throws RemoteException{
 		Usuario result=new Usuario();
 		Usuario loged=null;
@@ -181,7 +182,7 @@ public class ServicioUsuarios {
 	 */
 	@PUT
 	@Path("actualizar")
-	@Produces(MediaType.TEXT_HTML)
+	@Consumes(MediaType.TEXT_HTML)
 	public String updateUser(@QueryParam("usuario")UsuariosWS user,@QueryParam("loged")String usernameLoged, 
 			@QueryParam("password")String pwd)throws RemoteException, ParseException{
 		Usuario result=new Usuario();
