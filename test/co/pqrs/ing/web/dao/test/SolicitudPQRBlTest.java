@@ -35,6 +35,9 @@ public class SolicitudPQRBlTest {
 	@Autowired
 	UsuarioBl userBl;
 	
+	/**
+	 * metodo usado para testear el registro de las PQR
+	 */
 	//@Test
 	public void testRegistrarPQR() {
 		SolicitudPQR solicitud;
@@ -56,6 +59,9 @@ public class SolicitudPQRBlTest {
 		}
 	}
 	
+	/**
+	 * metodo usado para testear la cancelacion de una PQR
+	 */
 	//@Test
 	public void testCancelarPQR() {
 		SolicitudPQR solicitud;
@@ -70,8 +76,9 @@ public class SolicitudPQRBlTest {
 		}
 	}
 	
-	
-	
+	/**
+	 * metodo usado para testear las Notificaciones de las PQR
+	 */
 	//@Test
 	public void testNotificarPQRS() {
 		List<SolicitudPQR> solicitudes;

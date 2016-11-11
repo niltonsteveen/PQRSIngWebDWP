@@ -18,6 +18,11 @@ public class PreguntaWS {
 	private Boolean obligatoria;
 	private Boolean habilitada;
 	
+	/**
+	 * @param jsonRepresentation
+	 * @return Retorna un objeto de tipo PreguntaWS a partir de una
+	 * cadena en formato json capturada por url
+	 */
 	public static PreguntaWS fromString(String jsonRepresentation){
 		ObjectMapper mapper=new ObjectMapper();
 		mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES,true);
@@ -31,14 +36,18 @@ public class PreguntaWS {
 	}
 	
 	
-	
 	public PreguntaWS() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-
-
+	/**
+	 * @param codigo
+	 * @param plantilla
+	 * @param pregunta
+	 * @param obligatoria
+	 * @param habilitada
+	 * Método constructor de la clase PreguntaWS
+	 */
 	public PreguntaWS(Long codigo, PlantillaEncuestaWS plantilla, String pregunta, Boolean obligatoria,
 			Boolean habilitada) {
 		super();
@@ -49,8 +58,9 @@ public class PreguntaWS {
 		this.habilitada = habilitada;
 	}
 
-
-
+	/**
+	 * Getters and Setters
+	 */
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -81,8 +91,6 @@ public class PreguntaWS {
 	public void setHabilitada(Boolean habilitada) {
 		this.habilitada = habilitada;
 	}
-	
-	
 	
 	
 }

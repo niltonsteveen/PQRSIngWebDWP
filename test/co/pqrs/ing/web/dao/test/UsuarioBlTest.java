@@ -33,7 +33,9 @@ public class UsuarioBlTest {
 	UsuarioBl userBl;
 	
 	
-	
+	/**
+	 * método usado para testear la creación de usuarios
+	 */
 	//@Test
 	public void testCrearUsuario() {
 		Usuario usuarioTest;
@@ -52,12 +54,14 @@ public class UsuarioBlTest {
 			usuarioTest.setRol(Rol.CLIENTE);
 			userBl.crearUsuario(usuarioTest, loged);
 		} catch (MyDAOException | NullPointerException e) {
-			// TODO Auto-generated catch block
 			fail(e.getMessage());	
 		}
 
 	}
 	
+	/**
+	 * método usado para testear la Actualización de datos de un usuario
+	 */
 	//@Test
 	public void testActualizarUsuario() {
 		Usuario usr;
@@ -72,12 +76,14 @@ public class UsuarioBlTest {
 			
 			assertTrue(true);
 		} catch (MyDAOException | NullPointerException e) {
-			// TODO Auto-generated catch block
 			fail(e.getMessage());	
 		}
 
 	}
 	
+	/**
+	 * método usado para testear la validación de un usuario
+	 */
 	//@Test
 	public void testValidarUsuario() {
 		
@@ -85,7 +91,6 @@ public class UsuarioBlTest {
 			userBl.validarUsuario("velez2", "Niltonsteveen");
 			assertTrue(true);
 		} catch (MyDAOException | NullPointerException e) {
-			// TODO Auto-generated catch block
 			fail(e.getMessage());	
 		}
 

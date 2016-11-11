@@ -39,8 +39,6 @@ public class ServicioSucursal {
 	@Autowired
 	UsuarioBl usuarioBl;
 	
-	
-
 	public UsuarioBl getUsuarioBl() {
 		return usuarioBl;
 	}

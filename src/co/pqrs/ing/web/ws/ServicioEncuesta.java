@@ -110,6 +110,7 @@ public class ServicioEncuesta {
 	@Path("crearPlantilla")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response crearPlantilla(@QueryParam("plantilla")PlantillaEncuestaWS plantilla,@QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
+
 		try {
 			Usuario loged = usuarioBl.validarUsuario(user, pass);
 			if(Utils.validarAdmin(loged)){
@@ -132,10 +133,12 @@ public class ServicioEncuesta {
 	 * @throws RemoteException
 	 * Modifica una plantilla
 	 */
+
 	@PUT
 	@Path("modificarPlantilla")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response ModificarPlantilla(@QueryParam("plantilla")PlantillaEncuestaWS plantilla,@QueryParam("user")String user, @QueryParam("pass")String pass) throws RemoteException{
+
 		try {
 			Usuario loged = usuarioBl.validarUsuario(user, pass);
 			if(Utils.validarAdmin(loged)){
@@ -319,6 +322,7 @@ public class ServicioEncuesta {
 	 * @throws RemoteException
 	 * Guarda las respuestas a una encuesta
 	 */
+
 	@POST
 	@Path("responderEncuesta")
 	@Consumes(MediaType.APPLICATION_JSON)

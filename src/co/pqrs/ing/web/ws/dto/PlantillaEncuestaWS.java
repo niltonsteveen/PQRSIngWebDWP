@@ -11,12 +11,16 @@ import org.codehaus.jackson.map.ObjectMapper;
 @XmlRootElement
 public class PlantillaEncuestaWS {
 
-
 	private Long codigo;
 	private String tipo;
 	private String nombre;
 	private Date fechaCreacion;
 	
+	/**
+	 * @param jsonRepresentation
+	 * @return Retorna un objeto de tipo PlantillaEncuestaWS a partir de una
+	 * cadena en formato json capturada por url
+	 */
 	public static PlantillaEncuestaWS fromString(String jsonRepresentation){
 		ObjectMapper mapper=new ObjectMapper();
 		mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES,true);
@@ -33,11 +37,15 @@ public class PlantillaEncuestaWS {
 	
 	public PlantillaEncuestaWS() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-
-
+	/**
+	 * @param codigo
+	 * @param tipo
+	 * @param nombre
+	 * @param fechaCreacion
+	 * Método constructor de la clase PlantillaEncuestaWS
+	 */
 	public PlantillaEncuestaWS(Long codigo, String tipo, String nombre, Date fechaCreacion) {
 		super();
 		this.codigo = codigo;
@@ -46,7 +54,9 @@ public class PlantillaEncuestaWS {
 		this.fechaCreacion = fechaCreacion;
 	}
 
-
+	/**
+	 * Getters and Setters
+	 */
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -71,6 +81,5 @@ public class PlantillaEncuestaWS {
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
-	
-	
+		
 }

@@ -6,7 +6,13 @@ import co.pqrs.ing.web.dao.impl.SucursalDAO;
 import co.pqrs.ing.web.db.Sucursal;
 import co.pqrs.ing.web.exception.MyDAOException;
 import co.pqrs.ing.web.util.Utils;
-
+/**
+ * @author Alejandro Serna - Email: alejandro.serna3@gmail.com
+ * @author Nilton Velez - Email: nilton.velez@udea.edu.co
+ * @author Camilo Lopez - Email: lopcamilo@gmail.com
+ * @version 1.0.0
+ * Clase que implementa los metodos de la interfaz SucursalBI
+ */
 public class SucursalBlImpl implements SucursalBl {
 	
 	SucursalDAO sucursalDao;

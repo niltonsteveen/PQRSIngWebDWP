@@ -20,6 +20,11 @@ public class EncuestaWS {
 	private List<PreguntaWS> preguntas;
 	private List<RespuestaWS> respuestas;
 	
+	/**
+	 * @param jsonRepresentation
+	 * @return Retorna un objeto de tipo EncuestaWS a partir de una
+	 * cadena en formato json capturada por url
+	 */
 	public static EncuestaWS fromString(String jsonRepresentation){
 		ObjectMapper mapper=new ObjectMapper();
 		mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES,true);
@@ -35,10 +40,17 @@ public class EncuestaWS {
 	
 	public EncuestaWS() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-
+	/**
+	 * @param codigo
+	 * @param solicitudId
+	 * @param plantilla
+	 * @param fechaCreacion
+	 * @param preguntas
+	 * @param respuestas
+	 * Método constructor de la clase EncuestaWS
+	 */
 	public EncuestaWS(Long codigo, SolicitudPQRWS solicitudId, PlantillaEncuestaWS plantilla, Date fechaCreacion,
 			List<PreguntaWS> preguntas, List<RespuestaWS> respuestas) {
 		super();
@@ -50,7 +62,9 @@ public class EncuestaWS {
 		this.respuestas = respuestas;
 	}
 
-
+	/**
+	 * Getters and Setters
+	 */
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -87,9 +101,5 @@ public class EncuestaWS {
 	public void setRespuestas(List<RespuestaWS> respuestas) {
 		this.respuestas = respuestas;
 	}
-	
-	
-	
-	
 	
 }
