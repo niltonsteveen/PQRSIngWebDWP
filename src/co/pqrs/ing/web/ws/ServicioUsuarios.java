@@ -45,7 +45,8 @@ public class ServicioUsuarios {
 
 	/**
 	 * @return Retorna una lista de usuarios
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando la lista de 
+	 * usuarios no pudo ser creada
 	 */
 	@GET
 	@Path("all")
@@ -78,7 +79,8 @@ public class ServicioUsuarios {
 	/**
 	 * @param username
 	 * @return Retorna un usuario buscado por su identificación
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando no pudo ser encontrado
+	 * un usuario por su identificación
 	 */
 	@GET
 	@Path("userById")
@@ -112,7 +114,7 @@ public class ServicioUsuarios {
 	 * @param logedUser
 	 * @return Retorna un string con un mensaje y 
 	 * el nombre del usuario creado
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando el usuario no pudo ser creado
 	 */
 	@POST
 	@Path("createUser")
@@ -144,7 +146,8 @@ public class ServicioUsuarios {
 	 * @param username
 	 * @param pwd
 	 * @return Retorna una validacion de un usuario
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando elusuario
+	 * no pudo ser validado
 	 */
 	@GET
 	@Path("validar")
@@ -176,7 +179,8 @@ public class ServicioUsuarios {
 	 * @param pwd
 	 * @return Retona un String con un mensaje 
 	 * y la actualización de un usuario
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando elusuario
+	 * no pudo ser actualizado correctamente
 	 * @throws ParseException
 	 */
 	@PUT

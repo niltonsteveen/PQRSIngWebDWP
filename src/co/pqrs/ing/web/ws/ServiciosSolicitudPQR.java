@@ -76,7 +76,7 @@ public class ServiciosSolicitudPQR {
 	 * @param pwd
 	 * @return Retorna un String con la creación de la PQR que contiene
 	 * el identificador de la solicitud
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando la PQR no pudo ser creada
 	 */
 	@POST
 	@Path("createPQR")
@@ -112,7 +112,7 @@ public class ServiciosSolicitudPQR {
 	 * @param pwd
 	 * @return Retorna un String con la cancelación de una solicitud de PQR
 	 * con su respectivo identificador 
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando la PQR no pudo ser cancelada
 	 */
 	@PUT
 	@Path("cancelPQR")
@@ -138,7 +138,8 @@ public class ServiciosSolicitudPQR {
 	/**
 	 * @param user
 	 * @return Retorna una lista de solicitudes de PQR
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando la lista de solicitudes
+	 * no pudo ser creada
 	 */
 	@GET
 	@Path("notificacionPQR")
@@ -181,7 +182,8 @@ public class ServiciosSolicitudPQR {
 	/**
 	 * @param solicitud
 	 * @return Retorna una solicitud especifica buscada por su identificador
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando la solicitud
+	 * no pudo ser obtenida por el identificador
 	 */
 	@GET
 	@Path("GetById")
@@ -214,7 +216,8 @@ public class ServiciosSolicitudPQR {
 	 * @param user
 	 * @param password
 	 * @return Retorna una solicitud de PQR que fue delegada
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando la solicitud
+	 * no pudo ser delegada
 	 */
 	@PUT
 	@Path("Delegar")
@@ -259,7 +262,7 @@ public class ServiciosSolicitudPQR {
 	 * @param respuesta
 	 * @return Retorna un StringBuffer con un mensaje que indica que la 
 	 * PQR fue respuesta 
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando la PQR no pudo ser respuesta
 	 */
 	@PUT
 	@Path("responderPQR")

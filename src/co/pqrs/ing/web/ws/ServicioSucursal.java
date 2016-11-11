@@ -57,7 +57,8 @@ public class ServicioSucursal {
 	
 	/**
 	 * @return Retorna una lista de sucursales
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando la lista
+	 * de sucursales no pudo ser creada
 	 */
 	@GET
 	@Path("listar")
@@ -85,7 +86,7 @@ public class ServicioSucursal {
 	 * @param user
 	 * @param pwd
 	 * @return Retorna un String con el nombre de la sucursal creada
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando la sucursal no pudo ser creada
 	 */
 	@POST
 	@Path("createSucursal")
@@ -116,7 +117,8 @@ public class ServicioSucursal {
 	 * @param pwd
 	 * @return Retorna un String con el nombre de la sucursal 
 	 * que fue actualizada
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando la sucursal
+	 * no pudo ser actualizada
 	 */
 	@PUT
 	@Path("updateSucursal")

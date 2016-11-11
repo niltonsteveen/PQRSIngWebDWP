@@ -102,7 +102,8 @@ public class ServicioEncuesta {
 	 * @param plantilla
 	 * @param user
 	 * @param pass
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando el usuario no tiene permitido
+	 * modificar planillas
 	 * Crea una plantilla base
 	 */
 	
@@ -130,7 +131,8 @@ public class ServicioEncuesta {
 	 * @param plantilla
 	 * @param user
 	 * @param pass
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando el usuario no tiene permitido
+	 * modificar planillas
 	 * Modifica una plantilla
 	 */
 
@@ -159,7 +161,8 @@ public class ServicioEncuesta {
 	 * @param user
 	 * @param pass
 	 * @return Se retorna una Lista plantillas para una Encuesta
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando el usuario no tiene permitido
+	 * listar planillas
 	 */
 	@GET
 	@Path("listarPlantillas")
@@ -190,7 +193,8 @@ public class ServicioEncuesta {
 	 * @param pregunta
 	 * @param user
 	 * @param pass
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando el usuario no tiene permitido
+	 * modificar preguntas
 	 * Guarda una pregunta en una plantilla para una Encuesta
 	 */
 	@POST
@@ -219,7 +223,8 @@ public class ServicioEncuesta {
 	 * @param pregunta
 	 * @param user
 	 * @param pass
-	 * @throws RemoteException
+	 * @throws RemoteExceptionExcepción generada cuando el usuario no tiene permitido
+	 * modificar preguntas
 	 * Modifica una pregunta en una plantilla
 	 */
 	@PUT
@@ -249,7 +254,8 @@ public class ServicioEncuesta {
 	 * @param user
 	 * @param pass
 	 * @return Retorna una lista de preguntas para una plantilla
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando el usuario no tiene permitido
+	 * listar preguntas
 	 */
 	@GET
 	@Path("listarPreguntasPorPlantilla")
@@ -282,7 +288,8 @@ public class ServicioEncuesta {
 	 * @param pass
 	 * @return Retorna una encuesta generada a partir de una plantilla
 	 * con preguntas
-	 * @throws RemoteException
+	 * @throws RemoteExceptionExcepción generada cuando el usuario no tiene permitido
+	 * responder esta encuesta
 	 */
 	@GET
 	@Path("presentarEncuestaCliente")
@@ -319,7 +326,8 @@ public class ServicioEncuesta {
 	 * @param codigoEncuesta
 	 * @param user
 	 * @param pass
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando el usuario no tiene permitido
+	 * responder esta encuesta
 	 * Guarda las respuestas a una encuesta
 	 */
 
@@ -361,7 +369,8 @@ public class ServicioEncuesta {
 	 * @param pass
 	 * @return valida que el usuario logueado sea el administrador y luego
 	 * retorna una encuesta generada con sus respectivas respuestas
-	 * @throws RemoteException
+	 * @throws RemoteException Excepción generada cuando el usuario no tiene permitido
+	 * responder ver encuesta
 	 */
 	@GET
 	@Path("presentarEncuestaAdministrador")
@@ -407,7 +416,8 @@ public class ServicioEncuesta {
 	 * @return valida que el usuario logueado sea el administrador y luego
 	 * retorna una encuesta generada con sus respectivas respuestas 
 	 * por solicitud
-	 * @throws RemoteException
+	 * @throws RemoteExceptionExcepción generada cuando el usuario no tiene permitido
+	 * veresta encuesta
 	 */
 	@GET
 	@Path("presentarEncuestaAdministradorBySolicitud")
