@@ -157,7 +157,6 @@ public class ServicioEncuesta {
 	}
 	
 	/**
-	 * @param plantilla
 	 * @param user
 	 * @param pass
 	 * @return Se retorna una Lista plantillas para una Encuesta

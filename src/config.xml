@@ -75,7 +75,7 @@
 	</bean>
 	<bean id="encuestaBl" class="co.pqrs.ing.web.logic.EncuestaSatisfaccionBlImpl">
 		<property name="encuestaSatDao" ref="EncuestaSatisfaccionDao"></property>
-		<property name="preguntaBl" ref="PreguntaDAO"></property>
+		<property name="preguntaBl" ref="preguntaBl"></property>
 	</bean>
 	<bean id="plantillaBl" class="co.pqrs.ing.web.logic.PlantillaEncuestaBlImpl">
 		<property name="plantillaDao" ref="PlantillaEncuestaDAO"></property>
@@ -98,6 +98,7 @@
 		<property name="pqrdao" ref="SolicitudPQRDao"></property>
 		<property name="usuarioDAO" ref="UsuarioDao"></property>
 	</bean>
+	
 	<context:component-scan base-package="co.pqrs.ing.web.ws"></context:component-scan>
 	
 

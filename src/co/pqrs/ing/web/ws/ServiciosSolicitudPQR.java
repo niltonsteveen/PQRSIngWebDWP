@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -80,7 +81,7 @@ public class ServiciosSolicitudPQR {
 	 */
 	@POST
 	@Path("createPQR")
-	@Produces(MediaType.TEXT_HTML)
+	@Consumes(MediaType.APPLICATION_JSON)
 	public String createPQR(@QueryParam("solicitud")SolicitudPQRWS pqr,@QueryParam("usuario")String userId,@QueryParam("password")String pwd)throws RemoteException{
 		SolicitudPQR result=new SolicitudPQR();
 		Usuario loged=null;
@@ -116,7 +117,7 @@ public class ServiciosSolicitudPQR {
 	 */
 	@PUT
 	@Path("cancelPQR")
-	@Produces(MediaType.TEXT_HTML)
+	@Consumes(MediaType.TEXT_HTML)
 	public String cancelPQR(@QueryParam("solicitud")Long solicitudId,@QueryParam("usuario")String userId,@QueryParam("password")String pwd)throws RemoteException{
 		Usuario loged=null;
 		SolicitudPQR solicitudPQR=null;
@@ -221,7 +222,7 @@ public class ServiciosSolicitudPQR {
 	 */
 	@PUT
 	@Path("Delegar")
-	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
 	public SolicitudPQRWS delegarPQR(@QueryParam("solicitud")Long solicitud,
 			@QueryParam("encargado")String username,
 			@QueryParam("logedUser")String user,
@@ -266,7 +267,7 @@ public class ServiciosSolicitudPQR {
 	 */
 	@PUT
 	@Path("responderPQR")
-	@Produces(MediaType.TEXT_HTML)
+	@Consumes(MediaType.TEXT_HTML)
 	public StringBuffer responderPQR(@QueryParam("solicitud")Long solicitud,
 			@QueryParam("encargado")String username,
 			@QueryParam("password")String pwd,
