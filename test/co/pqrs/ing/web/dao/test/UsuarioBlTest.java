@@ -35,27 +35,29 @@ public class UsuarioBlTest {
 	
 	/**
 	 * método usado para testear la creación de usuarios
+	 * @throws MyDAOException 
 	 */
-	//@Test
-	public void testCrearUsuario() {
+	@Test (expected=MyDAOException.class)
+	public void testCrearUsuario() throws MyDAOException {
 		Usuario usuarioTest;
 		Usuario loged;
-		try {
+		//try {
 			
 			usuarioTest=new Usuario();
 			usuarioTest.setApellidos("garcia");
 			usuarioTest.setUsername("niltonsteveen");
-			usuarioTest.setEmail("usuario2@hotmail.com");
+			usuarioTest.setEmail("usuario2@");
 			usuarioTest.setNombres("steveen");
 			usuarioTest.setHabilitado(true);
 			loged = new Usuario();
 			loged.setRol(Rol.INVITADO);
 			usuarioTest.setPassword("nilton");
 			usuarioTest.setRol(Rol.CLIENTE);
-			userBl.crearUsuario(usuarioTest, loged);
-		} catch (MyDAOException | NullPointerException e) {
+			userBl.crearUsuario(usuarioTest, loged);	
+		/*} catch(MyDAOException | NullPointerException e) {
 			fail(e.getMessage());	
-		}
+		}*/
+		
 
 	}
 	

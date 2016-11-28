@@ -1,2 +1,7 @@
-2016-11-04 10:39:42.762 ERROR ErrorLog Debes seleccionar una solicitud para cancelar 
-2016-11-04 10:40:14.971 ERROR ErrorLog La solicitud tiene que tener un cliente asociado 
+2016-11-12 09:23:34.381 ERROR ErrorLog El usuario ya existe en la base de datos 
+2016-11-12 09:25:51.809 ERROR ErrorLog El usuario ya existe en la base de datos 
+2016-11-12 09:29:31.186 ERROR ErrorLog El usuario ya existe en la base de datos 
+2016-11-12 09:30:51.886 ERROR ErrorLog El usuario ya existe en la base de datos 
+2016-11-12 09:31:30.404 ERROR ErrorLog El usuario ya existe en la base de datos 
+2016-11-12 09:32:33.082 ERROR ErrorLog El usuario ya existe en la base de datos 
+2016-11-12 10:33:30.485 ERROR ErrorLog El usuario ya existe en la base de datos 
