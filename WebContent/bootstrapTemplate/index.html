@@ -110,22 +110,20 @@
                     <li>
                         <a class="page-scroll" href="#contact">Contactanos</a>
                     </li>
-                    <li id="liRegistrarse">
-                        <a class="page-scroll" href="" data-toggle="modal" data-target="#modalRegistro">Registrarse</a>
-                    </li>
-                    <li id="liInicioSesion">
-                        <a class="page-scroll" href="" data-toggle="modal" data-target="#modalLogin">Iniciar Sesión</a>
-                    </li>
-                    <li >
-                        <button id="mostrar1" class="page-scroll" href="" ></button>
-                    </li>
-                    <li >
-                        <a class="page-scroll" href="" >Acciones</a>
-                        <ul class="nav navbar-nav navbar-right">
-                        	<li><a class="page-scroll">Registrar pqr</a></li>
-                        	<li><a class="page-scroll">listar pqr</a></li>
-                        </ul>
-                    </li>
+                    <li class="dropdown">
+		    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Acciones <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a style="color:#F7BE81;" class="page-scroll">Registrar pqr</a></li>
+				<li><a style="color:#F7BE81;" class="page-scroll">listar pqr</a></li>
+			</ul>
+		    </li>
+			<li id="liRegistrarse">
+				<a href="#" data-toggle="modal" data-target="#modalRegistro"><span class="glyphicon glyphicon-user"></span> Registrarse</a>
+			</li>
+			<li id="liInicioSesion">
+				<a href="#" data-toggle="modal" data-target="#modalLogin"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a>
+			</li>
+
                     <li>
                     	<div id="nodoNotificaciones" hidden>
                     		<div class="page-scroll" id="notificaciones"> 
