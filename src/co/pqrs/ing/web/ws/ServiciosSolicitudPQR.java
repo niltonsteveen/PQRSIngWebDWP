@@ -88,14 +88,17 @@ public class ServiciosSolicitudPQR {
 		Usuario userSolicitud=null;
 		Sucursal sucursal=null;
 		try {
+			System.out.println("la pass " + pwd);
 			loged=usuarioBl.getUserById(userId);
 			loged=usuarioBl.validarUsuario(loged.getUsername(),pwd);
 			result.setDescripcion(pqr.getDescripcion());
 			TipoPQR tipoPQR=Utils.crearTipo(pqr.getTipo());
 			result.setTipo(tipoPQR);
-			sucursal=sucursalBl.getSucursalById(pqr.getSucursalId());
+			//sucursal=sucursalBl.getSucursalById(pqr.getSucursalId());
+			sucursal=new Sucursal();
+			sucursal.setCodigo(pqr.getSucursalId());
 			result.setSucursal(sucursal);
-			userSolicitud=usuarioBl.getUserById(pqr.getUsuarioId());
+			userSolicitud=usuarioBl.getUserById(loged.getUsername());
 			if(userSolicitud!=null){
 				result.setUsuario(userSolicitud);
 			}

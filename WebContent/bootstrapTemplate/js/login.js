@@ -7,18 +7,26 @@
 var appCliente = angular.module('PQRS', ['ngRoute']);
 
 var username='';
+var pass='';
 
 /**
  * Define los servicios necesario para la autenticaciÃ³n del usuario
  */
 
 
+appCliente.run(function($rootScope){
+	$rootScope.username='';
+	$rootScope.password='';
+})
 
 appCliente.service('Usuario', function($http){
 	
 	/**
 	 * Llama el servicio web para autenticar.
 	 */	 	
+	
+	
+	
 	this.autenticar = function(usuario, pws){
 		return $http({			
 			method: 'GET',
@@ -36,10 +44,12 @@ appCliente.service('Usuario', function($http){
  */
 appCliente.config(['$routeProvider', function($routeProvider){
 	
-	$routeProvider.when('/',{
-		templateUrl: '/WebContent/bootstrapTemplate/index.html',
-		controller: 'contLogin'
+
+	$routeProvider.when('/registrarPQR',{
+		templateUrl: 'registrarPQR.html',
+		controller: 'contPQR'
 	});
+	
 	
 }]);
 
@@ -49,6 +59,14 @@ appCliente.provider('datoU',function(){
 		$get: function(){
 			
 			return{
+				
+				getPassword: function(){
+					return pass;
+				},
+				
+				setPassword: function(password){
+					pass=password;
+				},
 				
 				getUsername: function(){
 					return username;
@@ -62,6 +80,10 @@ appCliente.provider('datoU',function(){
 })
 
 
+appCliente.controller('contRegistroPqr', function($scope, $location, Usuario, datoU){
+	alert('entro al controlador');
+});
+
 appCliente.controller('contLoged', function($scope, $location, Usuario, datoU){
 	$scope.usuario=datoU.getUsername();
 	alert(datoU.getUsername());
@@ -71,23 +93,28 @@ appCliente.controller('contLoged', function($scope, $location, Usuario, datoU){
 /**
  * Controlador para funcionalidad de la autenticaciÃ³n del usuario
  */
-appCliente.controller('contLogin', function($scope, $location, Usuario, datoU){
+appCliente.controller('contLogin', function($scope, $location, Usuario, datoU,$rootScope){
 	
 	$scope.nombreUsuario="";
 	$scope.contrasena="";	
 	$scope.username="";
 	$scope.autenticar = function(){
 		Usuario.autenticar($scope.nombreUsuario,$scope.contrasena).success(function(data){
-			$scope.username=datoU.setUsername(data.correo);
+			$scope.username=datoU.setUsername(data.username);
+			datoU.setPassword($scope.contrasena);
 			if(data != ''){
 				$scope.nombreUsuario="";
-				$scope.contrasena="";
-				
+				//$scope.contrasena="";
+				$rootScope.username=data.username;
+				$rootScope.password=$scope.contrasena;
 				$('#modalLogin').modal('toggle');
 				$('#liRegistrarse').remove();
 				$('#liInicioSesion').remove();
-				$('#header1').text(data.username);
-				alert(datoU.getUsername());
+				$('#usernameAcciones').text(data.username);
+				if(data.rol=='GERENTE'){
+					$('#notificacionesMenu').css({display: 'block'});
+				}
+				alert("Se ha autenticado correctamente");
 				$location.url("/principal");
 				return;
 			}else{
@@ -95,4 +122,108 @@ appCliente.controller('contLogin', function($scope, $location, Usuario, datoU){
 			}
 		});
 	}	
+});
+
+
+appCliente.controller('menuuPQR', function($scope, $location, Usuario, datoU){
+	
+	$scope.nombreUsuario="";
+	$scope.contrasena="";	
+	$scope.username="";
+	$scope.registrarPQR = function(){
+		alert('redireccionado');
+		
+	}	
+});
+
+
+
+/**
+ * Define el servicio para la creacion del PQR
+ */
+appCliente.service('SolicitudPQR', function($http){
+	
+	/**
+	 * Llama el servicio web para crearPQR.
+	 */
+	this.crearpqr = function(solicitud, usuario, pws){
+		return $http({			
+			method: 'POST',
+			url : 'http://localhost:8080/PQRSIngWebDWP/rest/SolicitudPQR/createPQR',
+			params: {
+				solicitud: solicitud,
+				usuario:usuario,
+				password: pws
+			}
+		});
+	};
+});
+
+
+
+/**
+ * control de la invocacion del servicio web
+ */
+appCliente.controller('contPQR', function($scope, $location, SolicitudPQR, datoU,$rootScope){
+	
+	/*var usuario=$rootScope.username;
+	alert(usuario);*/
+	
+	$scope.sucursal="";
+	$scope.tipoPqr="";
+	$scope.descripcion="";	
+	//$scope.nombreUsuario=usuario;
+	$scope.contrasena=datoU.getPassword();
+	$scope.registrarPQR = function(){
+		$scope.solicitud=[{'sucursalId':$scope.sucursal, 'tipo':$scope.tipoPqr, 'descripcion':$scope.descripcion}];
+		SolicitudPQR.crearpqr($scope.solicitud,$rootScope.username,$rootScope.password).then(function successCallback(response){
+			//if(data != ''){
+				alert('La solicitud ha sido creada correctamente');
+				$('#modalRegistrarPqr').modal('toggle');
+				/*insertar codigo faltante*/
+				//return;
+			/*}else{
+				alert("Datos Erroneos")
+			}*/
+		},
+		function errorCallback(response){
+			alert("Ha ocurrido un error en la creacion de pqr");
+		}
+		
+		);
+	}	
+});
+
+
+/**
+ * Define el servicio para  listar PQRs
+ */
+appCliente.service('ListarPQR', function($http){
+	
+	/**
+	 * Llama el servicio web para crearPQR.
+	 */
+	this.listarpqr = function(usuario){
+		return $http({			
+			method: 'GET',
+			url : 'http://localhost:8080/PQRSIngWebDWP/rest/SolicitudPQR/notificacionPQR',
+			params: {
+				usuario:usuario
+			}
+		});
+	};
+});
+
+
+
+/**
+ * control de la invocacion del servicio web ListarPQR
+ */
+appCliente.controller('contListarPQR', function($scope, ListarPQR, $rootScope){
+	
+	ListarPQR.listarpqr($rootScope.nombreUsuario).then(function successCallback(response){
+		$scope.listaSolicitudes=response.data.SolicitudPQRWS;
+	}, function errorCallback(response){
+		alert("Ha ocurrido un error consultando los clientes");
+	});
 });
