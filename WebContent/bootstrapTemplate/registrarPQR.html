@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Inversiones XYZ Ltda</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+    <!-- Theme CSS -->
+    <link href="css/agency.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script src="js/angular-route.min.js"></script>
+	<script type="text/javascript" src="js/cookies.js"></script>
+ 	<script type="text/javascript" src="js/login.js"></script>
+ 	
+</head>
+
+<body>
+<div id="registrarPQR" role="dialog" ng-controller="">
+		<div class="modal-dialog">
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		      	<div class="modal-header">
+			        <h4 class="modal-title">Formulario de Registro para una PQRS</h4>
+		      	</div>
+		      	<div class="modal-body">
+			    	<div class="main-login main-center">
+						<form class="form-horizontal" role="form" method="post" action="#">
+							<div class="form-group">
+								<label for="sucursal" class="cols-sm-2 control-label">Sucursal</label>
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
+													<select name="sucursal" id="sucursal" class="form-control" >
+													   <option value="0">Ninguna</option>
+													   <option value="1">Medellín</option> 
+													   <option value="2">Bogotá</option> 
+													   <option value="3">Cali</option>
+													   <option value="4">Barranquilla</option> 
+													   <option value="5">Cartagena</option> 
+													   <option value="6">Santa Marta</option>
+													</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" >
+								<label for="tipo" class="cols-sm-2 control-label">Tipo(*)</label>
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-text-width" aria-hidden="true"></i></span>
+										<select name="tipo" id="tipo" class="form-control" required>
+													   <option value="1">Petición</option> 
+													   <option value="2">Queja</option> 
+													   <option value="3">Reclamo</option>
+													   <option value="4">Solicitud</option>
+													   </select>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group" >
+								<label for="descripcion" class="cols-sm-3 control-label">Descripción(*)</label>
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-comment" aria-hidden="true" ></i></span>
+										<!--  <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Describa aquí su PQRS" required/>-->
+										<textarea name="descripcion" id="descripcion" placeholder="Describa aquí su PQRS" rows="10" cols="40" class="form-control" required></textarea>
+									</div>
+								</div>
+							</div>
+<br>
+							<div class="form-group">
+								<button type="button" class="btn btn-primary btn-lg btn-block" class="btn btn-success" ng-click="">Enviar PQR</button>
+							</div>
+						</form>
+					</div>
+			    </div>
+		      	<!--   <div class="modal-footer">
+		      	</div>-->
+		    </div>
+		</div>
+	</div>
+
+</body>
+</html>

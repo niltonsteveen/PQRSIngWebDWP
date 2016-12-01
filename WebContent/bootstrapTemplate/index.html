@@ -30,6 +30,14 @@
 	<link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
 
     <style type="text/css">
+    	
+    	#mainView{
+    		width: 100%;
+    		height: 400px;
+    		background-color: #F6E3CE;
+    		border-radius: 17px;
+    	} 
+    	 
     	#notificaciones{
     		width: 34px;
     		height: 34px;
@@ -64,87 +72,108 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script src="js/angular-route.min.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
+	<script type="text/javascript" src="js/cookies.js"></script>
+ 	    <script type="text/javascript" src="js/login.js"></script>
+ 	
 </head>
 
 <body id="page-top" class="index" ng-app="PQRS">
 
     <!-- Navigation -->
-        
-	<nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">INVERSIONES XYZ LTDA</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#services">Servicios</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#about">Acerca de</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#team">Team</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contactanos</a>
-                    </li>
-                    <li class="dropdown">
-		    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Acciones <span class="caret"></span></a>
-			<ul class="dropdown-menu">
-				<li><a style="color:#F7BE81;" class="page-scroll">Registrar pqr</a></li>
-				<li><a style="color:#F7BE81;" class="page-scroll">listar pqr</a></li>
-			</ul>
-		    </li>
-			<li id="liRegistrarse">
-				<a href="#" data-toggle="modal" data-target="#modalRegistro"><span class="glyphicon glyphicon-user"></span> Registrarse</a>
-			</li>
-			<li id="liInicioSesion">
-				<a href="#" data-toggle="modal" data-target="#modalLogin"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a>
-			</li>
-
-                    <li>
-                    	<div id="nodoNotificaciones" hidden>
-                    		<div class="page-scroll" id="notificaciones"> 
-                    			                   				
-                    				<i id="bell" class="fa fa-bell" aria-hidden="true">
-                    					<div id="numNotificaciones" style="position: absolute; top: -2px;left: 6px;">
-		                        			<p id="valorP"><strong>8</strong></p>
-		                        		</div>
-                    				</i>	
-                    				
-                    			                   
-                        	</div>	
-                    	</div>
-                        
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">INVERSIONES XYZ LTDA</a>
         </div>
-        <!-- /.container-fluid -->
-    </nav>
 
-    <div id="modalLogin" class="modal fade" role="dialog" ng-view>
-        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#acciones">Acciones</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#services">Servicios</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#portfolio">Portfolio</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#team">Team</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#about">Acerca de</a>
+                </li>
+                <!--  <li>
+                    <a class="page-scroll" href="#contact">Contactanos</a>
+                </li>   -->
+                <li id="liRegistrarse">
+                	<a href="#" data-toggle="modal" data-target="#modalRegistro"><span class="glyphicon glyphicon-user"></span> Registrarse</a>
+                </li>
+                <li id="liInicioSesion">
+                	<a href="#" data-toggle="modal" data-target="#modalLogin"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<!-- Modal creado para el inicio de sesion -->
+	<div id="modalLogin" class="modal fade" role="dialog" ng-controller="contLogin">
+		<div class="modal-dialog">
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		      	<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4 class="modal-title">Formulario de Inicio de Sesion</h4>
+		      	</div>
+		      	<div class="modal-body">
+			    	<div class="main-login main-center">
+						<form class="form-horizontal" method="post" action="#">
+							<div class="form-group">
+								<label for="username" class="cols-sm-2 control-label">Nombre de Usuario(*)</label>
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+										<input type="text" class="form-control" name="username" id="username"  placeholder="Ingrese su nombre de usuario" ng-model="nombreUsuario" required/>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="password" class="cols-sm-2 control-label">ContraseÃ±a(*)</label>
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+										<input type="password" class="form-control" name="password" id="password"  placeholder="Ingrese su contraseÃ±a" ng-model="contrasena" required/>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group ">
+								<button type="button" class="btn btn-primary btn-lg btn-block login-button" ng-click="autenticar()">Iniciar Sesion</button>
+							</div>
+						</form>
+					</div>
+			    </div>
+		      	<div class="modal-footer">
+		        	<button type="button" class="btn btn-default" data-dismiss>Cerrar</button>
+		      	</div>
+		    </div>
+		</div>
 	</div>
-    
+
 
     <!-- Header -->
     <header>
@@ -253,12 +282,152 @@
 		</div>
 </div>
 
+<br>
 
+<!--  <div id="mainView">
+	<div id="header1" background-color=#000000 >
+	<li>
+		<div id="nodoNotificaciones" hidden>
+			<div class="page-scroll" id="notificaciones"> 
+				<i id="bell" class="fa fa-bell" aria-hidden="true">
+					<div id="numNotificaciones" style="position: absolute; top: -2px;left: 6px;">
+	        			<p id="valorP"><strong>numnotific</strong></p>
+	        		</div>
+				</i>	
+	    	</div>	
+	    </div>
+	</li>
+	
+	 <li class="dropdown" id="acciones" hidden>
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Acciones <span class="caret"></span></a>
+		<ul class="dropdown-menu">
+			<li><a style="color:#F7BE81;" class="page-scroll">Registrar pqr</a></li>
+			<li><a style="color:#F7BE81;" class="page-scroll">listar pqr</a></li>
+			<li><a style="color:#F7BE81;" class="page-scroll">Responder pqr</a></li>
+		</ul>
+	</li>
+	</div>
+	
+	<div ng-view>
+		
+	</div>	
+</div>-->
 
+<!--  <div style="background-color:#D8D8D8">
+<nav class="navbar navbar-default" style="width:100%; border-radius: 10px">
+  <div class="container-fluid">
+ 	<div class="dropdown">
+        <a style="" href="" class="navbar-brand" type="button" id="menu1" data-toggle="dropdown">Acciones
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+          <li ><a class="page-scroll" href="#">Registrar PQR</a></li>
+          <li ><a class="page-scroll" href="#">Mis PQRS</a></li>
+        </ul>
+  	</div>
+  	<div class="navbar-header">
+      <a class="navbar-brand" href="">Notificaciones</a>
+    </div>
+    <div style="float:right" class="navbar-header">
+      <a class="navbar-brand" href="">Username</a>
+    </div>
+   
+  </div>
+</nav>
+<div ng-view style="background-color: #F2F2F2; height:200px; margin-top=0px">
+	<h5>ACA VA EL FORMULARIO SEGUN LA ACCION</h5>
+</div>
+</div>
 
+<div class="navbar-wrapper">
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Inversiones XYZ LTDA</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registrar PQR</a>
+                                </li>
+                                <li><a href="#">Listar PQR</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Notificaciones</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Username<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Cambiar contraseña</a></li>
+                                <li><a href="#">Editar Perfil</a></li>
+                            </ul>
+                        </li>
+                        <li class=""><a href="#">Cerrar sesion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>-->
 
+<div id="acciones"><br>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Inversiones XYZ LTDA</a>
+    </div>
 
-
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      	<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones<span class="caret">			  </span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Registrar PQR</a></li>
+            <li><a href="#">Listar PQR</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Notificaciones</a></li>
+        
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Escribe algo">
+        </div>
+        <button type="submit" class="btn btn-default">Buscar</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Username <span class="caret">			  </span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Editar Perfil</a></li>
+            <li><a href="#">Cambiar contraseña</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Cerrar Sesion</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div ng-view style="background-color:#F2EEEE; height:200px"></div>
+</div>
     
 
     <!-- Services Section -->
@@ -266,8 +435,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading">Servicios</h2>
+                    <h3 class="section-subheading text-muted">Nuestra empresa cuenta con los siguientes servicios</h3>
                 </div>
             </div>
             <div class="row text-center">
@@ -276,24 +445,24 @@
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">E-Commerce</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="service-heading">Venta de Electrodomesticos</h4>
+                    <p class="text-muted"> Contamos con todo tipo de electrodomésticos para ponerlos a su alcance con la mejor calidad</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="service-heading">Venta de Muebles</h4>
+                    <p class="text-muted">Contamos con los muebles de mejor calidad en el mercado, con gran variedad de diseños novedosos y elegantes para que pueda amueblar su casa </p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="service-heading">Instalación</h4>
+                    <p class="text-muted">Contamos con un equipo humano altamente calificado para la instalación de todos sus muebles y electrodomésticos</p>
                 </div>
             </div>
         </div>
@@ -307,7 +476,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Portfolio</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted"></h3>
                 </div>
             </div>
             <div class="row">
@@ -399,110 +568,27 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>2009-2011</h4>
-                                    <h4 class="subheading">Our Humble Beginnings</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>March 2011</h4>
-                                    <h4 class="subheading">An Agency is Born</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>December 2012</h4>
-                                    <h4 class="subheading">Transition to Full Service</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>July 2014</h4>
-                                    <h4 class="subheading">Phase Two Expansion</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <h4>Be Part
-                                    <br>Of Our
-                                    <br>Story!</h4>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Team Section -->
+  <!-- Team Section -->
     <section id="team" class="bg-light-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading">Nuestro Increible Equipo</h2>
+                    <h3 class="section-subheading text-muted">Nuestro Equipo de trabajo esta conformado por</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="team-member">
                         <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Kay Garland</h4>
-                        <p class="text-muted">Lead Designer</p>
+                        <h4>Alejandro Serna</h4>
+                        <p class="text-muted">Lider de Diseño</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
                             <li><a href="#"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="#"><i class="fa fa-google"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -510,8 +596,8 @@
                 <div class="col-sm-4">
                     <div class="team-member">
                         <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Larry Parker</h4>
-                        <p class="text-muted">Lead Marketer</p>
+                        <h4>Stiven Velez</h4>
+                        <p class="text-muted">Lider de Desarrollo</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
@@ -525,8 +611,8 @@
                 <div class="col-sm-4">
                     <div class="team-member">
                         <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
+                        <h4>Camilo Posada</h4>
+                        <p class="text-muted">Lider de Testing</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
@@ -540,13 +626,98 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                    <p class="large text-muted">Todo nuestro equipo de trabajo se encuentra conformado por estudiantes de Ingeniería de Sistemas de la Universidad de Antioquia</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Clients Aside -->
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Acerca de</h2>
+                    <h3 class="section-subheading text-muted">Este trabajo y su historia</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>01/08/2016 - 01/09/2016</h4>
+                                    <h4 class="subheading">Nuestros Inicios</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Este proyecto parte de una necesidad para una ficticia empresa en la materia Ingenieria Web, la cual requiere de una aplicacion web para su sistema de PQRS. Nuestro compromiso es ganar con una alta nota y para ellos diseñamos esta aplicación de calidad</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>01/09/2016 - 01/10/2016</h4>
+                                    <h4 class="subheading">Nace un proyecto</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted"> El primer paso para el cumplimiento de nuestro objetivo fue la toma de requisitos, los cuales implican aquellas funcionalidades y caracteristicas principales de nuestra aplicación</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>01/10/2016 - 01/11/2016</h4>
+                                    <h4 class="subheading">Inicios del Desarrollo</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Para el desarrollo de la aplicación web se hicieron uso de tecnologias de punta y del lenguaje de programación Java</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>01/11/2016 - 28/11/2016</h4>
+                                    <h4 class="subheading">Culminación del proyecto</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Para desarrollar la fase final de la aplicación web se usó el framework AngularJS 1.5, que en conjunto con otras tecnologias como Javascript, html 5, css 3 y bootstrap, ayudaron a que el proyecto fuese todo un exito y como resultado usted esta viendo esta hermosa aplicación</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>Gracias
+                                    <br>Por todo
+                                    <br>Profe</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+  
+    <!-- Clients Aside
     <aside class="clients">
         <div class="container">
             <div class="row">
@@ -572,9 +743,10 @@
                 </div>
             </div>
         </div>
-    </aside>
+    </aside> -->
 
-    <!-- Contact Section -->
+    <!-- Contact Section 
+    
     <section id="contact">
         <div class="container">
             <div class="row">
@@ -645,7 +817,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer>-->
 
     <!-- Portfolio Modals -->
     <!-- Use the modals below to showcase details about your portfolio projects! -->
